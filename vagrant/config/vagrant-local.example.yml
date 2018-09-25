@@ -1,5 +1,5 @@
 # Your personal GitHub token
-github_token: <your-personal-github-token>
+github_token: 020571f257b6c3551fcd102db2b201f2bc19ac24
 # Read more: https://github.com/blog/1509-personal-api-tokens
 # You can generate it here: https://github.com/settings/tokens
 
@@ -10,7 +10,7 @@ timezone: Europe/London
 box_check_update: false
 
 # Virtual machine name
-machine_name: yii2basic
+machine_name: stoma
 
 # Virtual machine IP
 ip: 192.168.83.137
