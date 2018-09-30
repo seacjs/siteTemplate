@@ -22,7 +22,10 @@
         "kartik-v/yii2-widget-fileinput": "@dev",
         "2amigos/yii2-ckeditor-widget": "^1.0@dev",
         "himiklab/yii2-recaptcha-widget": "*",
-        "keltstr/yii2-simplehtmldom": "dev-master"
+        "keltstr/yii2-simplehtmldom": "dev-master",
+        "omicronsoft/yii2-owl-carousel": "*",
+        "lanselot/yii2-parallax-widget": "*",
+        "newerton/yii2-fancybox": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

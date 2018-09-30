@@ -1,0 +1,128 @@
+/*   MAIN START */
+
+@primaryColor: #1468A4;
+@primaryDarkColor: #0074cb;
+
+@primarySemiColor: #46a049;
+@secondaryColor: #2196f3;
+@accentColor: #FF9710; //f44336 ff9800
+
+@secondaryDarkColor: #06416A; // #111820;
+@secondaryLightColor: #03a9f4;
+
+@maskDarkColor: rgba(17,24,32,0.7);
+
+//@primaryColor: #2196f3;
+//@primarySemiColor: #0072f3;
+//@secondaryColor: #0072f3;
+//@accentColor: #ff8f00; //f44336 ff9800
+//
+//@secondaryDarkColor: #ff8f00;
+//@secondaryLightColor: #ff8f00;
+
+//@primaryLightColor: #2196f3;
+//@primarySemiLightColor: #2196f3;
+//@secondaryLightColor: #dc081c;
+//@secondarySemiLightColor: #dc081c;
+//@accentLightColor: #DB697B;
+//@accentSemiLightColor: #DB4058;
+
+@whiteColor: #fff;
+@blackColor: #424242;
+@grayLightColor: #efefef;
+
+
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.42857143;
+
+}
+div {
+  font-size: 16px;
+  line-height: 1.42857143;
+
+}
+
+body, p, li, a {
+  font-family: 'Noto Sans', sans-serif;
+  //font-family: 'PT Sans', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6 {
+  /*font-family: 'Ubuntu', sans-serif;*/
+  //font-family: 'Roboto', sans-serif;
+  margin:0px auto;
+
+  /*font-family: 'Ubuntu', sans-serif;*/
+  /*font-family: 'Roboto', sans-serif; */
+  font-family: 'Noto Sans', sans-serif;
+  //font-family: 'Open Sans', sans-serif;
+}
+
+h2, .h2 {
+  line-height: 32px;
+  font-size: 22px;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  font-weight: 600;
+}
+p {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: 'Noto Sans', sans-serif;
+}
+a, a:hover {
+  transition: 0.5s;
+}
+body, p, h2, h3, h4, h5, h6 {
+  color: @blackColor;
+}
+
+a, .href {
+  color: @secondaryColor;
+  border-color: @secondaryColor;
+  outline: 0px;
+}
+a, .href:hover {
+  color: @secondaryDarkColor;
+  border-color: @secondaryDarkColor;
+  text-decoration: none;
+}
+
+::selection {
+  background: @primaryColor; /* Safari */
+  color: @whiteColor;
+}
+::-moz-selection {
+  background: @primaryColor; /* Firefox */
+  color: @whiteColor;
+}
+
+.section {
+  padding: 60px 0px 120px;
+  position: relative;
+}
+.title-h2 {
+  padding-bottom: 64px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+}
+@media (max-width: 768px) {
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+
+/* MAIN --- END */
+

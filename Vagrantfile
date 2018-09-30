@@ -7,7 +7,7 @@ required_plugins.each do |plugin|
 end
 
 domains = {
-  app: 'stoma'
+  app: 'smile'
 }
 
 vagrantfile_dir_path = File.dirname(__FILE__)

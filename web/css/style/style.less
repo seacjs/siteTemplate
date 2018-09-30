@@ -1,0 +1,232 @@
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+
+
+
+/* ------------------------------------------------------------------------------------------------------------- */
+
+
+/*
+
+    JUMBO
+
+*/
+
+#jumbo {
+    //background: url(http://www.fainaidea.com/wp-content/uploads/2015/11/149_113.jpg) no-repeat center;
+    background-size: cover;
+    color: @whiteColor !important;
+    position: relative;
+    overflow: hidden;
+    background: url(/images/jumbo.jpg) no-repeat center;
+}
+.inner-parallax {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+}
+.inner-background {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: @maskDarkColor;
+    z-index: 100;
+}
+.parallax {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.inner-content {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index: 200;
+}
+#jumbo .description {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 16px;
+    color: #E5E5E5 !important;
+}
+h1, .h1 {
+    margin-top: 273px !important;
+    font-size: 24px !important;
+    color: #E5E5E5 !important;
+    top: 273px;
+
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+h1 b, .h1 b {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 52px;
+}
+#jumbo .open-modal {
+    background: #ff8f00 !important;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 18px;
+}
+
+#montagnic {
+    width: 430px;
+    position: absolute;
+    bottom: -130px;
+    right: 460px;
+    z-index: 100;
+}
+
+@media (max-width: 1920px) {#montagnic {right: 260px;}}
+@media (max-width: 1600px) {#montagnic {right: 100px;}}
+@media (max-width: 992px) {
+    #jumbo {
+        text-align: center !important;
+    }
+    h1 {
+        line-height: 48px !important;
+        font-size: 30px !important;
+    }
+    .description {
+        line-height: 48px !important;
+        font-size: 30px !important;
+    }
+}
+
+
+
+
+/*
+
+    CALLBACK
+
+*/
+.modal-content {
+
+}
+.modal-header {
+    text-align: center;
+    font-size: 18px;
+    background: black;
+    color: #fff;
+    padding: 32px !important;
+    text-transform: uppercase;
+}
+.close {
+    float: right;
+    color: #fff !important;
+    opacity: 0.7 !important;
+    margin-top: 0px !important;
+    right: 10px !important;
+    font-size: 24px !important;
+    position: relative;
+}
+.modal input {
+    font-size: 20px;
+    line-height: 24px;
+    background: #fff;
+    border-radius: 30px;
+    padding:  16px 32px 16px 32px;
+    border: 0;
+    margin-top: 16px;
+    color: @secondaryDarkColor;
+    letter-spacing: .025em;
+    -webkit-transition: none;
+    transition: none;
+    border: solid 2px @primaryColor;
+    outline: none;
+}
+.modal p {
+    font-size: 18px !important;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.modal .btn {
+    background: #fff;
+    border-radius: 30px;
+    padding:  16px 32px 16px 32px;
+    background: @accentColor;
+    width:311px;
+    margin-top: 16px;
+    margin-bottom:24px;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .modal-header {
+        padding: 32px 48px !important;
+    }
+    .modal input,.modal .btn {
+        width:100%;
+    }
+    .close {
+        right: -15px !important;
+    }
+}
+
+/*
+
+    CAROUSEL
+
+*/
+.owl-nav {
+    display: none;
+}
+.container-fluid {
+    position: relative;
+}
+.arrow-left,
+.arrow-right {
+    position: absolute;
+    height: 83px;
+    width: 44px;
+    z-index:1000;
+    top: 250px;
+    cursor: pointer;
+}
+
+.arrow-left {
+    background: url('/images/left-arrow.png') no-repeat left;
+    left:60px;
+}
+.arrow-right {
+    background: url('/images/right-arrow.png') no-repeat right;
+    right: 60px;
+}
+
+@media (max-width: 768px) {
+    .arrow-left {
+        left:10px;
+    }
+    .arrow-right {
+        right: 10px;
+    }
+}
+
+#question-section p {
+    text-align: center;
+    font-size: 18px;
+    margin: auto;
+    line-height: 32px;
+    padding-top: 0px;
+    margin-top: 0px;
+    color: #fff !important
+}
+
+

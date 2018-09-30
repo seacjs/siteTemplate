@@ -1,58 +1,262 @@
 <?php
 
+use yii\bootstrap\Html;
+use yii\bootstrap\Modal;
+use yii\web\View;
+
+
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = "Академия улыбки";
+//$this->registerMetaTag(['name' => 'keywords', 'content' => 'yii, framework, php'], 'keywords');
+$this->registerMetaTag(['name' => 'description', 'content' => ''], 'description');
+
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+<section class="section" id="jumbo" data-spy="scroll" data-target="#navbar-main" class="scrollspy-example">
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+    <div class="inner-parallax">
+<!--        --><?php //echo \lanselot\parallax\ParallaxWidget::widget([
+//            'image' => 'images/jumbo.jpg',
+//            'element' => 'parallax',
+//            'minHeight' => '400px',
+//        ]); ?>
     </div>
 
-    <div class="body-content">
+    <div class="inner-background"></div>
+    <div class="inner-content">
+        <div class="container">
 
-        <div class="row">
-            <div class="col-lg-12">
+            <h1>Стоматологическая клиника<br><b>«Академия Улыбки»</b><br></h1>
+            <p class="description">Профессионально лечим зубы детям и взрослым<br> под наркозом и без </p>
+            <button class="btn btn-main open-modal" data-toggle="modal" data-target="#callback-form">Запишитесь на прием</button>
 
-            </div>
         </div>
+    </div>
+</section>
+
+<!-- ------------------ -->
+
+<section class="section align-center" id="service-section">
+    <div class="container">
+        <h2>Услуги клиники</h2>
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="service-wrap">
+                    <img src="/images/service/service-1.jpg" class="service-img">
+                    <div class="service-title">Лечение зубов</div>
+                    <div class="service-description">Быстро, надолго и без боли</div>
+                    <div class="service-price"><div class="price-text">от 150000 руб</div></div>
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
         </div>
 
     </div>
-</div>
+</section>
+
+<!-- ------------------ -->
+
+<section class="section" id="doctors-section" data-spy="scroll" data-target="#navbar-main" class="scrollspy-example">
+    <div class="container">
+        <div class="row">
+
+            <h2 class="title-h2">Врачи</h2>
+
+            <?php
+            $doctors = [
+                    [
+                        'image' => '1',
+                        'title' => '1',
+                        'description' => '1',
+                        'work' => '1',
+                    ],
+                    [
+                        'image' => '2',
+                        'title' => '2',
+                        'description' => '2',
+                        'work' => '2',
+                    ],
+                    [
+                        'image' => '3',
+                        'title' => '3',
+                        'description' => '3',
+                        'work' => '3',
+                    ],
+            ];
+            $carouselDoctorItems = [];
+            foreach($doctors as $key => $doctor) {
+                $carouselDoctorItems[] = [
+                    'content' => $this->render('@app/views/site/block/carouselDoctorItem', [
+                        'doctor' => $doctor,
+                    ])
+                ];
+            }
+            ?>
+
+            <div class="arrow-left"></div>
+            <div class="arrow-right"></div>
+
+            <?php echo  \omicronsoft\owlcarousel\OwlCarouselWidget::widget([
+                'options' => [
+                    'class' => 'owl-carousel',
+                ],
+                'clientOptions' => [
+                    'loop' => true,
+                    'margin' => 0,
+                    'nav' => true,
+                    'dots' => true,
+                    'responsive' => [
+                        '0' => [
+                            'items' => 1,
+                        ],
+                        '960' => [
+                            'items' => 2,
+                        ],
+                        '1600' => [
+                            'items' => 3,
+                        ],
+                    ],
+                ],
+                'itemOptions' => ['class' => 'carousel-reviews-item'],
+                'items' => $carouselDoctorItems,
+            ]); ?>
+
+        </div>
+</section>
+
+
+<!-- ------------------ -->
+
+
+<section class="section" id="reviews-section" data-spy="scroll" data-target="#navbar-main" class="scrollspy-example">
+    <div class="container-fluid">
+
+        <h2 class="title-h2">Отзывы</h2>
+
+        <?php
+        $reviews = [
+            [
+                'image' => '1',
+                'name' => '1',
+                'text' => '1',
+            ],
+            [
+                'image' => '2',
+                'name' => '2',
+                'text' => '2',
+            ],
+            [
+                'image' => '3',
+                'name' => '3',
+                'text' => '3',
+            ],
+            [
+                'image' => '4',
+                'name' => '4',
+                'text' => '4',
+            ],
+            [
+                'image' => '5',
+                'name' => '5',
+                'text' => '5',
+            ],
+            [
+                'image' => '6',
+                'name' => '6',
+                'text' => '6',
+            ],
+        ];
+
+        $carouselItems = [];
+        foreach($reviews as $key => $review) {
+            $carouselItems[] = [
+                'content' => $this->render('@app/views/site/block/carouselReviewItem', [
+                    'review' => $review,
+                ])
+            ];
+        }
+        ?>
+
+        <div class="arrow-left"></div>
+        <div class="arrow-right"></div>
+
+        <?php echo  \omicronsoft\owlcarousel\OwlCarouselWidget::widget([
+            'options' => [
+                'class' => 'owl-carousel',
+            ],
+            'clientOptions' => [
+                'loop' => true,
+                'margin' => 0,
+                'nav' => true,
+                'dots' => true,
+                'responsive' => [
+                    '0' => [
+                        'items' => 1,
+                    ],
+                    '960' => [
+                        'items' => 1,
+                    ],
+                    '1600' => [
+                        'items' => 2,
+                    ],
+                ],
+            ],
+            'itemOptions' => ['class' => 'carousel-reviews-item'],
+            'items' => $carouselItems,
+        ]); ?>
+
+
+    </div>
+</section>
+
+
+<!-- ------------------ -->
+
+
+<section class="section" id="contacts-section" data-spy="scroll" data-target="#navbar-main" class="scrollspy-example">
+    <div class="container">
+        <h2>Контакты</h2>
+
+
+    </div>
+</section>
+
+<!-- ------------------ -->
+
+
+<!-- MODAL CALLBACK-->
+<?
+Modal::begin([
+    'header' => '&nbsp;Оставьте вашу заявку',
+    'toggleButton' => false,
+    'options' => [
+        'id' => 'callback-form',
+    ]
+]);
+
+//echo $this->render('@app/views/layouts/block/callbackForm', [
+//    'callbackModel' => $callbackModel
+//]);
+
+Modal::end();
+?>
+
+<!-- MODAL SENDED-->
+
+<?Modal::begin([
+    'header' => 'Заявка оставлена',
+    'clientOptions' => [
+        'show' => $emailSended
+    ],
+]);?>
+<p>Ваша заявка отправлена, наши менеджеры свяжутся с вами.</p>
+<hr>
+<?= Html::button(Yii::t('app', 'Закрыть'), ['class' => 'btn btn-black', 'data-dismiss' => 'modal'])?>
+
+<? Modal::end() ?>
+<?if($emailSended):?>
+    <?php $this->registerJs("yaCounter____number___.reachGoal('formReadySended');",View::POS_LOAD)?>
+<?endif?>
