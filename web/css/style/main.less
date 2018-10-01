@@ -43,7 +43,6 @@ body {
 div {
   font-size: 16px;
   line-height: 1.42857143;
-
 }
 
 body, p, li, a {
@@ -64,11 +63,19 @@ h1,h2,h3,h4,h5,h6,
 }
 
 h2, .h2 {
-  line-height: 32px;
-  font-size: 22px;
-  padding-top: 30px;
-  padding-bottom: 15px;
-  font-weight: 600;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 48px;
+  text-align: left;
+}
+.h2-after {
+  margin-left: 30px;
+  height: 2px;
+  width: 85px;
+  display: inline-block;
+  background: url(/images/h2-after.png) no-repeat center;
 }
 p {
   font-weight: 400;
@@ -79,6 +86,7 @@ a, a:hover {
   transition: 0.5s;
 }
 body, p, h2, h3, h4, h5, h6 {
+  font-family: Noto Sans;
   color: @blackColor;
 }
 
@@ -103,13 +111,7 @@ a, .href:hover {
 }
 
 .section {
-  padding: 60px 0px 120px;
   position: relative;
-}
-.title-h2 {
-  padding-bottom: 64px;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -121,8 +123,13 @@ a, .href:hover {
     padding-left: 10px !important;
     padding-right: 10px !important;
   }
+  h2, .h2 {
+    padding-top: 45px;
+    padding-bottom: 30px;
+    font-size: 24px;
+    text-align: left;
+  }
 }
 
 
 /* MAIN --- END */
-

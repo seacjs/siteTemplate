@@ -61,9 +61,16 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-
+        $mapInfo = [
+            'phone' => '+7 (999) 999-99-99',
+            'address' => 'г. Брянск, ул. Ленина 16',
+            'work' => 'ужедневно с 9 до 21',
+            'email' => 'mail@mail.com',
+        ];
         
-        return $this->render('index');
+        return $this->render('index', [
+            'mapInfo' => $mapInfo
+        ]);
     }
 
     /**
