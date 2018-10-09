@@ -16,7 +16,7 @@ use yii\bootstrap\Html;
             <div class="doctor-title"><?=$doctor['title']?></div>
             <div class="doctor-desc"><?=$doctor['description']?></div>
             <div class="doctor-work"><?=$doctor['work']?></div>
-            <div class="doctor-button">Записаться к этому врачу</div>
+            <a href="#callbackwidget"><div class="doctor-button">Записаться к этому врачу</div></a>
         </div>
     </div>
 

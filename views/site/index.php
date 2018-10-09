@@ -29,7 +29,8 @@ $this->registerMetaTag(['name' => 'description', 'content' => ''], 'description'
 
             <h1>Стоматологическая клиника<br><b>«Академия Улыбки»</b><br></h1>
             <p class="description">Профессионально лечим зубы детям и взрослым<br> под наркозом и без </p>
-            <button class="btn btn-main open-modal" data-toggle="modal" data-target="#callback-form">Запишитесь на прием</button>
+            <a class="btn btn-main" href="#callbackwidget">Запишитесь на прием</a>
+<!--            <button class="btn btn-main open-modal" data-toggle="modal" data-target="#callback-form">Запишитесь на прием</button>-->
 
         </div>
     </div>
@@ -146,8 +147,8 @@ $this->registerMetaTag(['name' => 'description', 'content' => ''], 'description'
             }
             ?>
 
-            <div class="arrow-left"></div>
-            <div class="arrow-right"></div>
+            <div class="arrow-left arrow-left-doctor"></div>
+            <div class="arrow-right arrow-right-doctor"></div>
 
             <div class="doctors-wrap">
                 <?php echo  \omicronsoft\owlcarousel\OwlCarouselWidget::widget([
