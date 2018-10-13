@@ -15,6 +15,12 @@ use yii\base\Behavior;
 class ImageContentBehavior extends Behavior
 {
 
+    const EVENT_BEFORE_CONTENT = 'beforeContent';
+
+    public function beforeContent()
+    {
+        die('111');
+    }
     /*
         TODO:: Переделать в contentBehavior который моб бы
             - выполнять текущие действия
@@ -27,12 +33,27 @@ class ImageContentBehavior extends Behavior
     {
         return [
             /* todo: заменить это событие на свое и сделать его только для редактирования EVENT_BEFORE_UPDATE */
-            yii\db\BaseActiveRecord::EVENT_AFTER_FIND => 'before',
-            yii\db\ActiveRecord::EVENT_AFTER_UPDATE => 'update'
+            yii\db\BaseActiveRecord::EVENT_AFTER_FIND => 'afterFindContent',//'before',
+            yii\db\ActiveRecord::EVENT_AFTER_UPDATE => 'updateContentAfterUpdate'
         ];
     }
 
-    public function before()
+    /**
+     * For example add next code "$model->trigger('beforeContent');" when it need;
+     * 
+     * */
+    public function afterFindContent()
+    {
+        $this->owner->on( 'beforeContent', function ($event) {
+            $this->updateContentBeforeLoad();
+        });
+    }
+
+    /**
+     * Находит в контенте файлы и подставляет им alt и title
+     *
+     * */
+    public function updateContentBeforeLoad()
     {
         $attributes = is_array($this->contentAttribute) ? $this->contentAttribute : array($this->contentAttribute);
         foreach($attributes as $attribute) {
@@ -52,10 +73,17 @@ class ImageContentBehavior extends Behavior
                     }
                 }
                 $this->owner->{$attribute} = $content->save();
+                $this->owner->save();
+//                yii\helpers\VarDumper::dump($this->owner,10,1); die;
             }
         }
     }
-    public function update()
+
+    /**
+     * Ищет файлы в контенте, проставляет им title и alt, и удаляет файлы удаленные из контента
+     *
+     */
+    public function updateContentAfterUpdate()
     {
 
         $attributes = is_array($this->contentAttribute) ? $this->contentAttribute : array($this->contentAttribute);

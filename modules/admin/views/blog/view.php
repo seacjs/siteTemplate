@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\News */
+/* @var $model app\models\Blog */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'News'), 'url' => ['index']];
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', Yii::$app->controller->id), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="news-view">
+<div class="<?=Yii::$app->controller->id?>-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -41,6 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <!-- todo: сделать на этой странице возможность редактирования атрибутов alt и title -->
     <!-- todo: в будущем можно добавить что бы сделать отображались и кантинки из контента -->
+    <!-- todo: вынести в отедльный файл блок картинок, он везде одинаковый, и вообще очень много поторяющихся элементов -->
+
     <?php $form = \yii\bootstrap\ActiveForm::begin()?>
 
     <h3>Main files</h3>

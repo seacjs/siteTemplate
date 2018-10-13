@@ -7,16 +7,15 @@ use app\actions\FileSortAction;
 use app\actions\FileUploadAction;
 use app\actions\FileUploadCkeAction;
 
-use app\models\Blog;
-use app\modules\admin\models\search\BlogSearch;
-
+use app\models\Review;
+use app\modules\admin\models\search\ReviewSearch;
 use app\models\File;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-class BlogController extends FrontController
+class ReviewController extends FrontController
 {
     /**
      * @inheritdoc
@@ -39,31 +38,31 @@ class BlogController extends FrontController
         return ArrayHelper::merge(parent::actions(), [
             'file-upload-cke' => [
                 'class' => FileUploadCkeAction::class,
-                'modelName' => Blog::class,
+                'modelName' => Review::class,
             ],
             'file-upload' => [
                 'class' => FileUploadAction::class,
-                'modelName' => Blog::class,
+                'modelName' => Review::class,
             ],
             'file-delete' => [
                 'class' => FileDeleteAction::class,
-                'modelName' => Blog::class,
+                'modelName' => Review::class,
             ],
             'file-sort' => [
                 'class' => FileSortAction::class,
-                'modelName' => Blog::class,
+                'modelName' => Review::class,
             ],
         ]);
     }
 
 
     /**
-     * Lists all Blog models.
+     * Lists all Review models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new BlogSearch();
+        $searchModel = new ReviewSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -73,7 +72,7 @@ class BlogController extends FrontController
     }
 
     /**
-     * Displays a single Blog model.
+     * Displays a single Review model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -100,13 +99,13 @@ class BlogController extends FrontController
     }
 
     /**
-     * Creates a new Blog model.
+     * Creates a new Review model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Blog();
+        $model = new Review();
         $model->scenario = $model::SCENARIO_CREATE;
         $model->status = $model::STATUS_DRAFT;
         $model->save();
@@ -157,12 +156,12 @@ class BlogController extends FrontController
      * Finds the News model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Blog the loaded model
+     * @return Review the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        $model = Blog::findOne($id);
+        $model = Review::findOne($id);
         if (($model) !== null) {
             return $model;
         }

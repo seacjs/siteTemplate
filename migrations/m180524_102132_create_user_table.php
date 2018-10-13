@@ -27,7 +27,6 @@ class m180524_102132_create_user_table extends Migration
 
             'online_at' => $this->integer()->notNull(),
         ], $tableOptions);
-
     }
 
     public function down()

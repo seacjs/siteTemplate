@@ -21,7 +21,7 @@ class BlogSearch extends Blog
     public function rules()
     {
         return [
-            [['name', 'slug', 'created_at', 'updated_at'], 'required'],
+            [['name', 'slug', 'created_at', 'updated_at'], 'safe'],
             [['created_at', 'updated_at', 'status'], 'integer'],
             [['content'], 'string'],
             [['name', 'slug', 'title', 'description', 'keywords', 'h1'], 'string', 'max' => 255],
@@ -49,12 +49,6 @@ class BlogSearch extends Blog
     {
         $query = Blog::find();
 
-        // add conditions that should always apply here
-
-        if(!Yii::$app->user->can('superAdmin') && !Yii::$app->user->can('developer')) {
-//            $query->andFilterWhere(['terminal_id' => Admin::terminalsIds()]);
-        }
-
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -68,16 +62,16 @@ class BlogSearch extends Blog
             return $dataProvider;
         }
 
-
         // grid filtering conditions
         $query->andFilterWhere([
             self::tableName().'.id' => $this->id,
             self::tableName().'.status' => $this->status,
+            self::tableName().'.created_at' => $this->created_at,
+            self::tableName().'.updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', self::tableName().'slug', $this->slug])
             ->andFilterWhere(['like', self::tableName().'.name', $this->name]);
-        $query->orderBy(['sort' => SORT_DESC]);
 
         return $dataProvider;
     }

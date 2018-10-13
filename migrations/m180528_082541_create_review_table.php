@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `message`.
  */
-class m180528_082540_create_blog_table extends Migration
+class m180528_082541_create_review_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -13,12 +13,10 @@ class m180528_082540_create_blog_table extends Migration
     public function safeUp()
     {
 
-        $this->createTable('{{%blog}}', [
+        $this->createTable('{{%review}}', [
             'id' => $this->primaryKey(),
 
-            'name' => $this->string()->notNull(),
-            'slug' => $this->string()->notNull(),
-
+            /* basic */
             'title' => $this->string(),
             'description' => $this->string(),
             'keywords' => $this->string(),
@@ -29,6 +27,7 @@ class m180528_082540_create_blog_table extends Migration
 
             'content' => $this->text(),
             'status' => $this->smallInteger(),
+
         ]);
 
     }
@@ -38,6 +37,6 @@ class m180528_082540_create_blog_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%blog}}');
+        $this->dropTable('{{%review}}');
     }
 }

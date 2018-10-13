@@ -18,11 +18,12 @@ class AdminAsset extends AssetBundle
         'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css',
 //        'css/animate.css',
 //        'css/style/layout.css',
+
         /* components */
         'css/components/callout.css',
 
         /* style */
-//        'css/style.css'
+        'css/admin.css'
     ];
 
     public $js = [

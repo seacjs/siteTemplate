@@ -116,4 +116,6 @@ class Blog extends \yii\db\ActiveRecord
             'status' => Yii::t('app', 'Status'),
         ];
     }
+//    TODO: afterDelete -> delete links and images
+
 }

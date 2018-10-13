@@ -3,15 +3,16 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-use app\modules\admin\models\Admin;
-/* @var $this yii\web\View */
-/* @var $searchModel app\modules\admin\models\search\NewsSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Blog');
+/* @var $this yii\web\View */
+/* @var $searchModel app\modules\admin\models\search\BlogSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+// TODO: timepicker on filter (created_at)
+
+$this->title = Yii::t('app', Yii::$app->controller->id);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="blog-index">
+<div class="<?=Yii::$app->controller->id?>-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
@@ -19,10 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
 
-
-    <?= Html::a(Yii::t('app', 'Create News'), ['create'], ['class' => 'btn btn-success']) ?>
-
-
+    <?= Html::a(Yii::t('app', 'Create ' . Yii::$app->controller->id), ['create'], ['class' => 'btn btn-success']) ?>
 
     </p>
 
@@ -34,14 +32,45 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'id',
             'name',
-
-
+            'slug',
+//            [
+//                'attribute' => 'created_at',
+//                'value' => function ($model, $index, $widget) {
+//                    return Yii::$app->formatter->asDate($model->created_at);
+//                },
+//                'filter' => \dosamigos\datepicker\DatePicker::widget([
+//                    'model' => $searchModel,
+//                    'attribute' => 'created_at',
+//                    'language' => 'en',
+//                    'clientOptions' => [
+//                        'autoclose' => true,
+//                        'format' => 'yyyy-mm-dd',
+//                    ],
+//                ]),
+//                'format' => 'html',
+//            ],
+//            [
+//                'attribute' => 'updated_at',
+//                'value' => function ($model, $index, $widget) {
+//                    return Yii::$app->formatter->asDate($model->updated_at);
+//                },
+//                'filter' => \dosamigos\datepicker\DatePicker::widget([
+//                    'model' => $searchModel,
+//                    'attribute'=>'updated_at',
+//                    'language' => 'ru',
+//                    'clientOptions' => [
+//                        'autoclose' => true,
+//                        'format' => 'dd-M-yyyy'
+//                    ]
+//                ]),
+//                'format' => 'html',
+//            ],
             [
                 'label' => 'status',
                 'attribute' => 'status',
                 'class' => 'yii\grid\DataColumn',
                 'content' => function ($data) {
-                    return '<span class="label label-'.($data->status ? 'success' : 'danger').'">' .($data->status ? Yii::t('app','active') :Yii::t('app',' not active') ). '</span>';
+                    return '<span class="label label-'.($data->status ? 'success' : 'danger').'">' .($data->status ? Yii::t('app','Опубликован') :Yii::t('app','Черновик') ). '</span>';
                 },
                 'filterInputOptions' => [
                     'prompt' => Yii::t('app', 'All types'),

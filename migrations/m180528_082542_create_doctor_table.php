@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `message`.
  */
-class m180528_082540_create_blog_table extends Migration
+class m180528_082542_create_doctor_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -13,7 +13,7 @@ class m180528_082540_create_blog_table extends Migration
     public function safeUp()
     {
 
-        $this->createTable('{{%blog}}', [
+        $this->createTable('{{%doctor}}', [
             'id' => $this->primaryKey(),
 
             'name' => $this->string()->notNull(),
@@ -38,6 +38,6 @@ class m180528_082540_create_blog_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%blog}}');
+        $this->dropTable('{{%page}}');
     }
 }

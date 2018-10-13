@@ -11,7 +11,7 @@ use dosamigos\ckeditor\CKEditor;
 
 ?>
 
-<div class="news-form">
+<div class="<?=Yii::$app->controller->id?>-form">
 
     <?php $form = ActiveForm::begin([
         'options' => ['enctype' => 'multipart/form-data']

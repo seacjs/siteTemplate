@@ -139,7 +139,7 @@ class DefaultController extends FrontController
 
 
     /**
-     * Login action. todo: this
+     * Login action.
      *
      * @return Response|string
      */
@@ -155,6 +155,7 @@ class DefaultController extends FrontController
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect('/admin');
         }
+
         return $this->render('login', [
             'model' => $model,
         ]);

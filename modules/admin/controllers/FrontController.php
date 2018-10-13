@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
 /**
@@ -12,6 +13,33 @@ class FrontController extends Controller
 
     public $layout = 'main';
     public $enableCsrfValidation = true;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'denyCallback' => function($rule, $action) {
+                    return \Yii::$app->response->redirect('/admin/default/login');
+                },
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@']
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['login'],
+                        'roles' => ['?'],
+                    ],
+                ]
+
+            ],
+        ];
+    }
 
     /**
      * @inheritdoc

@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `message`.
  */
-class m180528_082541_create_seo_table extends Migration
+class m180528_082541_create_service_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -13,7 +13,7 @@ class m180528_082541_create_seo_table extends Migration
     public function safeUp()
     {
 
-        $this->createTable('{{%seo}}', [
+        $this->createTable('{{%service}}', [
             'id' => $this->primaryKey(),
 
             /* basic */
@@ -22,9 +22,12 @@ class m180528_082541_create_seo_table extends Migration
             'keywords' => $this->string(),
             'h1' => $this->string(),
 
-            /* social */
+            'created_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
 
-
+            'content' => $this->text(),
+            'content_description' => $this->string(),
+            'status' => $this->smallInteger(),
 
         ]);
 
@@ -35,6 +38,6 @@ class m180528_082541_create_seo_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%seo}}');
+        $this->dropTable('{{%service}}');
     }
 }
