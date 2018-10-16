@@ -43,6 +43,15 @@ AdminAsset::register($this);
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
                 ['label' => 'Blog', 'url' => ['/admin/blog/index']],
+                ['label' => 'Service', 'url' => ['/admin/service/index']],
+                ['label' => 'Doctor', 'url' => ['/admin/doctor/index']],
+                ['label' => 'Review', 'url' => ['/admin/review/index']],
+                ['label' => 'Example', 'url' => ['/admin/example/index']],
+                ['label' => 'General', 'items' => [
+                    ['label' => 'Настройки', 'url' => ['/admin/settings/index']],
+                    ['label' => 'Сертификаты', 'url' => ['/admin/sertificate/index']],
+                    ['label' => 'Интерьер', 'url' => ['/admin/interior/index']],
+                ]],
                 Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/admin/default/login']]
                 ) : (

@@ -7,11 +7,13 @@ use app\actions\FileSortAction;
 use app\actions\FileUploadAction;
 use app\actions\FileUploadCkeAction;
 
+use app\models\Doctor;
 use app\models\Service;
 use app\modules\admin\models\search\ServiceSearch;
 use app\models\File;
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -81,7 +83,7 @@ class ServiceController extends FrontController
     {
         $request = Yii::$app->request;
         $post = $request->post();
-        if($request->isPost) {
+        if($request->isPost && isset($post['ids'])) {
             foreach($post['ids'] as $key => $postId) {
                 $file = File::findOne(['id' => $postId]);
                 if($file !== null) {
@@ -126,8 +128,13 @@ class ServiceController extends FrontController
         $fileModel = new File();
         $fileModel->multiple = false;
         $fileModel->files = $model->files;
+        $post = Yii::$app->request->post();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($post) && $model->save()) {
+
+            if(isset($post['Service']['doctors'])) {
+                $model->processLinks(Doctor::class, 'doctors', $post['Service']['doctors']);
+            }
 
             return $this->redirect(['view', 'id' => $model->id]);
         }

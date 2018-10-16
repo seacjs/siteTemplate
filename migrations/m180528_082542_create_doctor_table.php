@@ -29,6 +29,13 @@ class m180528_082542_create_doctor_table extends Migration
 
             'content' => $this->text(),
             'status' => $this->smallInteger(),
+
+            'content2' => $this->text(),
+
+            'position' => $this->string()->defaultValue(null), //  должность
+            'specialization' => $this->string(), //  специализация
+            'scientist' => $this->string(), //  ученая степерь
+            'start_working' => $this->integer(),
         ]);
 
     }

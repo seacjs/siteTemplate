@@ -16,6 +16,9 @@ class m180528_082541_create_review_table extends Migration
         $this->createTable('{{%review}}', [
             'id' => $this->primaryKey(),
 
+            'name' => $this->string()->notNull(),
+            'slug' => $this->string()->notNull(),
+
             /* basic */
             'title' => $this->string(),
             'description' => $this->string(),

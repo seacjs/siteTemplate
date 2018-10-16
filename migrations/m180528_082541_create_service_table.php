@@ -16,6 +16,9 @@ class m180528_082541_create_service_table extends Migration
         $this->createTable('{{%service}}', [
             'id' => $this->primaryKey(),
 
+            'name' => $this->string()->notNull(),
+            'slug' => $this->string()->notNull(),
+
             /* basic */
             'title' => $this->string(),
             'description' => $this->string(),
@@ -26,8 +29,10 @@ class m180528_082541_create_service_table extends Migration
             'updated_at' => $this->integer()->notNull(),
 
             'content' => $this->text(),
-            'content_description' => $this->string(),
             'status' => $this->smallInteger(),
+
+            'parent_id' => $this->integer(),
+            'short_content' => $this->string(),
 
         ]);
 

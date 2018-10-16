@@ -19,7 +19,7 @@ class ImageContentBehavior extends Behavior
 
     public function beforeContent()
     {
-        die('111');
+        die('ImageContentBehavior');
     }
     /*
         TODO:: Переделать в contentBehavior который моб бы
@@ -33,7 +33,7 @@ class ImageContentBehavior extends Behavior
     {
         return [
             /* todo: заменить это событие на свое и сделать его только для редактирования EVENT_BEFORE_UPDATE */
-            yii\db\BaseActiveRecord::EVENT_AFTER_FIND => 'afterFindContent',//'before',
+            yii\db\BaseActiveRecord::EVENT_AFTER_FIND => 'afterFindContent', //'before',
             yii\db\ActiveRecord::EVENT_AFTER_UPDATE => 'updateContentAfterUpdate'
         ];
     }

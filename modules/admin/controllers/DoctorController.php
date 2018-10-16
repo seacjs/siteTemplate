@@ -8,6 +8,7 @@ use app\actions\FileUploadAction;
 use app\actions\FileUploadCkeAction;
 
 use app\models\Doctor;
+use app\models\Service;
 use app\modules\admin\models\search\DoctorSearch;
 use app\models\File;
 use Yii;
@@ -81,7 +82,7 @@ class DoctorController extends FrontController
     {
         $request = Yii::$app->request;
         $post = $request->post();
-        if($request->isPost) {
+        if($request->isPost && isset($post['ids'])) {
             foreach($post['ids'] as $key => $postId) {
                 $file = File::findOne(['id' => $postId]);
                 if($file !== null) {
@@ -126,8 +127,12 @@ class DoctorController extends FrontController
         $fileModel = new File();
         $fileModel->multiple = false;
         $fileModel->files = $model->files;
+        $post = Yii::$app->request->post();
+        if ($model->load($post) && $model->save()) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if(isset( $post['Doctor']['services'])) {
+                $model->processLinks(Service::class, 'services', $post['Doctor']['services']);
+            }
 
             return $this->redirect(['view', 'id' => $model->id]);
         }

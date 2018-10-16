@@ -27,7 +27,6 @@ class BlogSearch extends Blog
             [['name', 'slug', 'title', 'description', 'keywords', 'h1'], 'string', 'max' => 255],
         ];
     }
-    public $city_id;
 
     /**
      * @inheritdoc
@@ -70,7 +69,7 @@ class BlogSearch extends Blog
             self::tableName().'.updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', self::tableName().'slug', $this->slug])
+        $query->andFilterWhere(['like', self::tableName().'.slug', $this->slug])
             ->andFilterWhere(['like', self::tableName().'.name', $this->name]);
 
         return $dataProvider;

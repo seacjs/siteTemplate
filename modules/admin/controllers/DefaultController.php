@@ -11,6 +11,7 @@ use app\models\Spendings;
 use app\models\Subcategory;
 use app\models\User;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\helpers\VarDumper;
 use yii\imagine\Image;
 
@@ -132,7 +133,13 @@ class DefaultController extends FrontController
      */
     public function actionIndex()
     {
-
+//        $behaviors = [
+//            'imageContentBehavior' => 'imageContentBehavior',
+//            '123' => '123',
+//            '234234234' => '234234234'
+//        ];
+//        ArrayHelper::remove($behaviors,'imageContentBehavior');
+//        VarDumper::dump($behaviors,10,1);die;
 
         return $this->render('index');
     }

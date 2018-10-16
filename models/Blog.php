@@ -2,14 +2,7 @@
 
 namespace app\models;
 
-use app\behaviors\FileMethodsBehavior;
-use app\behaviors\ImageContentBehavior;
-use app\traits\DeleteFilesBeforeDeleteModelTrait;
-use app\traits\GetFilesTrait;
-use app\traits\GetFileTrait;
 use Yii;
-use yii\behaviors\TimestampBehavior;
-use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "blog".
@@ -26,56 +19,8 @@ use yii\helpers\ArrayHelper;
  * @property string $content
  * @property int $status
  */
-class Blog extends \yii\db\ActiveRecord
+class Blog extends FrontActiveRecord
 {
-
-    const STATUS_DRAFT = 0;
-    const STATUS_ACTIVE = 1;
-
-    /**
-     * Get all statuses
-     * @return array
-     */
-    public static function getStatusesArray() {
-        return [
-            self::STATUS_DRAFT => 'Черновик',
-            self::STATUS_ACTIVE => 'Опубликовано',
-        ];
-    }
-
-    const SCENARIO_CREATE = 'create';
-
-    /**
-     * {@inheritdoc}
-     */
-    public function scenarios()
-    {
-        return ArrayHelper::merge(parent::scenarios(),[
-            self::SCENARIO_CREATE => [],
-        ]);
-    }
-
-    /**
-     * Use traits to get methods to work with files
-     * todo: попробовать переделать на behaviors
-     * */
-    use GetFileTrait, GetFilesTrait, DeleteFilesBeforeDeleteModelTrait;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return ArrayHelper::merge(parent::behaviors(), [
-            'timestampBehavior' => [
-                'class' => TimestampBehavior::class,
-            ],
-            'imageContentBehavior' => [
-                'class' => ImageContentBehavior::class
-            ]
-        ]);
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -90,10 +35,11 @@ class Blog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'slug', 'created_at', 'updated_at'], 'required'],
+            [['name', 'created_at', 'updated_at'], 'required'],
             [['created_at', 'updated_at', 'status'], 'integer'],
             [['content'], 'string'],
             [['name', 'slug', 'title', 'description', 'keywords', 'h1'], 'string', 'max' => 255],
+            [['slug'], 'safe']
         ];
     }
 
@@ -116,6 +62,5 @@ class Blog extends \yii\db\ActiveRecord
             'status' => Yii::t('app', 'Status'),
         ];
     }
-//    TODO: afterDelete -> delete links and images
 
 }

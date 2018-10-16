@@ -6,7 +6,7 @@ use kartik\file\FileInput;
 use dosamigos\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\News */
+/* @var $model app\models\Blog */
 /* @var $form yii\widgets\ActiveForm */
 
 ?>
@@ -22,8 +22,6 @@ use dosamigos\ckeditor\CKEditor;
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
-
-    <button class="btn btn-info">Сгенерировать slug на основе названия.</button>
 
     <hr>
 

@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `message`.
  */
-class m180528_082541_create_page_table extends Migration
+class m180528_082541_create_seo_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -13,7 +13,7 @@ class m180528_082541_create_page_table extends Migration
     public function safeUp()
     {
 
-        $this->createTable('{{%page}}', [
+        $this->createTable('{{%seo}}', [
             'id' => $this->primaryKey(),
 
             'name' => $this->string()->notNull(),
@@ -26,10 +26,6 @@ class m180528_082541_create_page_table extends Migration
 
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
-
-            'content' => $this->text(),
-
-            'status' => $this->smallInteger(),
         ]);
 
     }
@@ -39,6 +35,6 @@ class m180528_082541_create_page_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%page}}');
+        $this->dropTable('{{%seo}}');
     }
 }
