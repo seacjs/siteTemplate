@@ -12,6 +12,8 @@ return [
         '/admin' => 'admin/default/index',
 
 
+        'prices' => 'site/prices',
+
 
         /* admin */
         [

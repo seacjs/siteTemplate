@@ -1,37 +1,10 @@
 /*   MAIN START */
-
-@primaryColor: #1468A4;
-@primaryDarkColor: #0074cb;
-
-@primarySemiColor: #46a049;
-@secondaryColor: #2196f3;
-@accentColor: #FF9710; //f44336 ff9800
-
-@secondaryDarkColor: #06416A; // #111820;
-@secondaryLightColor: #03a9f4;
-
-@maskDarkColor: rgba(17,24,32,0.7);
-
-//@primaryColor: #2196f3;
-//@primarySemiColor: #0072f3;
-//@secondaryColor: #0072f3;
-//@accentColor: #ff8f00; //f44336 ff9800
-//
-//@secondaryDarkColor: #ff8f00;
-//@secondaryLightColor: #ff8f00;
-
-//@primaryLightColor: #2196f3;
-//@primarySemiLightColor: #2196f3;
-//@secondaryLightColor: #dc081c;
-//@secondarySemiLightColor: #dc081c;
-//@accentLightColor: #DB697B;
-//@accentSemiLightColor: #DB4058;
-
-@whiteColor: #fff;
-@blackColor: #424242;
-@grayLightColor: #efefef;
-
-
+@color-blue: #109AD4;
+@color-blue-light: #6BC5F7;
+@color-blue-gradient: linear-gradient(221.83deg, rgba(107, 197, 247, 0.9) 14.59%, rgba(255, 255, 255, 0) 85.41%), #109AD4;;
+@color-white: #fff;
+@color-black: #000;
+@color-dark: #444444;
 
 html,
 body {
@@ -46,90 +19,128 @@ div {
 }
 
 body, p, li, a {
-  font-family: 'Noto Sans', sans-serif;
-  //font-family: 'PT Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+.breadcrumb {
+  background: none;
+}
+.breadcrumb-before {
+  padding-top: 110px !important;
+}
+.breadcrumb-after {
+  padding-bottom: 60px !important;
+}
+.breadcrumb > li + li:before {
+  content: ' - ';
+}
+.breadcrumb > li > a {
+  color: @color-dark;
+}
+.breadcrumb > li.active {
+  color: @color-blue;
 }
 
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6 {
-  /*font-family: 'Ubuntu', sans-serif;*/
-  //font-family: 'Roboto', sans-serif;
-  margin:0px auto;
-
+  margin:0 auto;
   /*font-family: 'Ubuntu', sans-serif;*/
   /*font-family: 'Roboto', sans-serif; */
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   //font-family: 'Open Sans', sans-serif;
 }
 
-h2, .h2 {
-  padding-top: 120px;
-  padding-bottom: 80px;
-  font-weight: bold;
+h1, .h1 {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 300;
   line-height: normal;
-  font-size: 48px;
-  text-align: left;
+  font-size: 36px;
+  color: @color-blue;
+  padding-bottom: 25px;
 }
-.h2-after {
-  margin-left: 30px;
-  height: 2px;
-  width: 85px;
-  display: inline-block;
-  background: url(/images/h2-after.png) no-repeat center;
+
+h2, .h2 {
+  padding-top: 50px;
+  padding-bottom: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  font-size: 24px;
+  text-align: left;
+  color: @color-blue;
+}
+h2:after ,.h2:after {
+  content: '';
+  margin-left: 0px;
+  margin-top: 34px;
+  height: 1px;
+  width: 150px;
+  background: @color-black;
+  display: block;
+}
+h3, .h3 {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  font-size: 20px;
+}
+h4, .h4{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  font-size: 18px;
 }
 p {
-  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
   font-size: 16px;
-  font-family: 'Noto Sans', sans-serif;
 }
 a, a:hover {
   transition: 0.5s;
 }
 body, p, h2, h3, h4, h5, h6 {
-  font-family: Noto Sans;
-  color: @blackColor;
+  font-family: 'Roboto', sans-serif;
 }
 
 a, .href {
-  color: @secondaryColor;
-  border-color: @secondaryColor;
-  outline: 0px;
+  color: @color-blue;
+  outline: 0;
   text-decoration: none !important;
 }
 a, .href:hover {
-  color: @secondaryDarkColor;
-  border-color: @secondaryDarkColor;
+  color: @color-blue-light;
   text-decoration: none !important;
 }
 
 ::selection {
-  background: @primaryColor; /* Safari */
-  color: @whiteColor;
+  background: #fff; /* Safari */
+  color: #000;
 }
 ::-moz-selection {
-  background: @primaryColor; /* Firefox */
-  color: @whiteColor;
+  background: #fff; /* Firefox */
+  color: #000;
 }
 
 .section {
   position: relative;
 }
-
-.container {
-  padding-left: 80px !important;
-  padding-right: 80px !important;
+section-gray {
+  background-color: #F8F8F8;
 }
+.container {
+}
+
+
 @media (max-width: 768px) {
-  .container {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
-  h2, .h2 {
-    padding-top: 45px;
-    padding-bottom: 30px;
-    font-size: 24px;
-    text-align: left;
-  }
+    .container {
+    }
+    h2, .h2 {
+    }
 }
 
 

@@ -5,41 +5,23 @@
 */
 
 #jumbo {
-    //background: url(http://www.fainaidea.com/wp-content/uploads/2015/11/149_113.jpg) no-repeat center;
-
-    color: @whiteColor !important;
+    color: @color-blue !important;
     position: relative;
     overflow: hidden;
-    background: url(/images/jumbo.jpg) no-repeat center;
+    background: url(/images/jumbo.png) no-repeat center;
     background-size: cover;
     height: 100%;
+    max-height: 520px;
 }
-#jumbo .inner-parallax {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 99;
-}
-#jumbo .inner-content {
-    position: relative;
-    left: 0px;
-    top: 0px;
-    z-index: 200;
-}
-#jumbo h1, #jumbo .h1 {
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
-    font-size: 24px;
 
-    color: #E5E5E5 !important;
-    padding-top: 270px;
+#jumbo h1, #jumbo .h1 {
+    font-weight: 300;
+    line-height: normal;
+    font-size: 52px;
+    color: @color-blue !important;
+    padding-top: 175px;
 }
-#jumbo h1 b, #jumbo .h1 b {
-    font-family: Noto Sans;
+#jumbo h1 .description, #jumbo .h1 .description {
     font-style: normal;
     font-weight: bold;
     line-height: normal;
@@ -47,46 +29,44 @@
     color: #fff;
 }
 #jumbo .description {
-    padding: 17px 0px 60px;
-    font-family: Noto Sans;
+    padding: 15px 0px 40px;
     font-style: normal;
-    font-weight: normal;
     line-height: normal;
-    font-size: 16px;
-    color: #fff;
+    color: @color-dark;
+    font-weight: 300;
+    line-height: normal;
+    font-size: 24px;
 }
-#jumbo .btn-main {
-    padding: 12px 30px;
-    background: linear-gradient(270deg, #2F80ED 0%, #56CCF2 100%);
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 90px;
-    color: #fff;
+.btn-main {
+    background: linear-gradient(190.15deg, rgba(107, 197, 247, 0.9) 14.59%, rgba(255, 255, 255, 0) 85.41%), #109AD4;
+    background-blend-mode: hard-light, normal;
+    border-radius: 250px;
+    width: 200px;
+    height:40px;
+    padding-top: 8px;
+    color: @color-white;
+    font-family: 'Roboto';
+    font-weight: 300;
+    line-height: normal;
+    font-size: 18px;
 }
-#jumbo .open-modal {
+.btn-main:hover {
+    color: @color-white;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.3);
 }
-@media (max-width: 992px) {
-    #jumbo {
 
-    }
-    #jumbo h1 {
-        padding-top: 160px;
-        font-size: 18px !important;
-    }
-    #jumbo h1 b {
-        font-size: 30px;
-    }
-    #jumbo .description {
-        font-size: 20px !important;
-    }
+@media (max-width: 992px) {
+    #jumbo {}
+    #jumbo h1 {}
+    #jumbo h1 b {}
+    #jumbo .description {}
     #jumbo .btn-main {}
 }
 @media (max-width: 768px) {
-    #jumbo {
-        text-align: center !important;
-    }
-    #jumbo h1 {  }
-    #jumbo h1 b{}
-    #jumbo .description {  }
+    #jumbo {}
+    #jumbo h1 {}
+    #jumbo h1 b {}
+    #jumbo .description {}
     #jumbo .btn-main {}
 }
 
@@ -96,58 +76,31 @@
     SERVICE
 
 */
-.service-wrap {
-    position: relative;
-    width: 330px;
-    height: 248px;
-    margin: 0px auto 40px;
+.service-basic-item {
+    padding: 60px 0px 40px;
+    min-height: 100px;
+    text-align: left;
 }
-.service-img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 330px;
-    height: 248px;
+.service-basic-item-image {
+    height: 100%;
+    width:100%;
+    padding-left: 125px;
+    min-height: 100px;
 }
-.service-title {
-    position: absolute;
-    right: 25px;
-    top: 80px;
-    font-family: Noto Sans;
+.service-basic-item-title {
+    color: @color-blue;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 300;
     line-height: normal;
     font-size: 24px;
-    color: #fff;
+    padding-bottom: 12px;
 }
-.service-description {
-    text-align: right;
-    position: absolute;
-    right: 25px;
-    top: 120px;
+.service-basic-item-description {
+    color: @color-dark;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
     font-size: 16px;
-    color: #fff;
-}
-.service-price {
-    padding: 10px;
-    border-radius: 10px 0px 0px 0px;
-    right: 3px;
-    bottom:3px;
-    position: absolute;
-    background-color: #fff;
-    width: 185px;
-}
-.service-price  .price-text {
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
-    font-size: 24px;
-    text-align: right;
-    background: -webkit-linear-gradient(15deg, #56CCF2,#2F80ED);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #2F80ED;
 }
 
 /*
@@ -155,124 +108,105 @@
     DOCTORS
 
 */
-.doctors-wrap {
-    padding-left: 10px;
-    padding-right: 10px;
+.doctor-basic {
+    text-align: left;
 }
-.doctor-wrap {
-    margin: auto;
-    max-width: 290px;
-    text-align: center;
+.doctor-basic-img {
+    width: 230px;height: 100px;
 }
-.doctor-img {
-    margin: auto;
-    border-radius: 50%;
-    height: 250px;
-    width: 250px;
+.doctor-basic-img img {
+    width: auto;
+    height: 100%;
 }
-.doctor-img img {
-    height:100%;
-    width: 100%;
+.doctor-basic-name {
+    color: @color-blue;
+    font-size: 24px;
+    font-weight: 300;
+    padding: 20px 0px;
 }
-.doctor-title {
-    padding-top: 30px;
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
-    font-size: 19px;
-    text-align: center;
+.doctor-basic-description {
+    font-size: 16px;
+    color: @color-dark;
+    height: 70px;
+    padding-bottom: 15px;
 }
-.doctor-desc {
-    padding-top:20px;
+.doctor-basic-position {}
+.doctor-basic-specialization {}
+.doctor-basic-scientist {}
+.doctor-basic-start_working {
+    color: @color-blue;
+    font-size: 20px;
+    padding-bottom: 35px;
 }
-.doctor-work {
-    padding-top:12px;
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 18px;
+.doctor-basic-button {
+    width:150px;
+    height:30px;
+    font-size: 14px;
+    padding: 7px 20px;
+    border: 1px solid @color-blue;
+    color: @color-blue;
+    background: @color-white;
+    border-radius: 200px;
+    transition: 0.3s;
 }
-.doctor-button {
-    text-decoration: none !important;
-    margin-top: 27px;
-    width: 270px;
-    height: 50px;
-    border-radius: 22px;
-    background: linear-gradient(270deg, #2F80ED 0%, #56CCF2 100%);
-    color: #fff;
-    padding: 12px 0px;
+.doctor-basic-button:hover {
+    color: @color-white;
+    background: @color-blue;
+}
 
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    font-size: 18px;
-    text-align: center;
-}
 
 /*
 
     REVIEWS
 
 */
-.reviews-wrap {
-    padding: 0px 60px;
+.review-item{}
+.review-item-name{
+    font-size: 20px;
 }
-.review-header {
-    position: relative;
-    padding: 15px 0px;
+.review-item-doctors {}
+.review-item-doctors-title {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 10px;
 }
-.review-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: inline-block;
+.review-item-doctor {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 10px;
 }
-.review-img img {
-    width: 100%;
-    height: 100%;
+.review-item-content {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 20px 0px 25px;
 }
-.review-header .review-name {
-    position: absolute;
-    left:0px;
-    padding-left: 115px;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
-    font-size: 19px;
-    display: inline-block;
+.review-item-services {}
+.review-item-services-title {
+    color: @color-blue;
+    font-weight: 300;
+    font-size: 14px;
 }
-.review-body .review-text {
-    font-size: 18px;
-    line-height: 32px;
-    padding-bottom: 16px;
+.review-item-service {
+    font-weight: 300;
+    font-size: 14px;
 }
+.review-carousel-arrow-left {
 
+}
+.review-carousel-arrow-right {
+
+}
 
 @media (max-width: 768px) {
     .reviews-wrap {
-        padding: 0px 30px;
     }
     .review-img {
-        margin: auto;
-        width: 250px;
-        height: 250px;
     }
     .review-header .review-name {
-        margin:auto;
-        position: relative;
-        padding: 0px;
-        text-align: center;
     }
     .review-header .review-img, .review-header .review-name {
-        display: block;
     }
     .review-body .review-text {
-        text-align: center;
-        font-size: 16px;
-        line-height: 22px;
-        padding-bottom: 14px;
     }
 }
 

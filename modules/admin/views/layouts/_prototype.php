@@ -42,12 +42,14 @@ AdminAsset::register($this);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                ['label' => 'Blog', 'url' => ['/admin/blog/index']],
-                ['label' => 'Service', 'url' => ['/admin/service/index']],
-                ['label' => 'Doctor', 'url' => ['/admin/doctor/index']],
-                ['label' => 'Review', 'url' => ['/admin/review/index']],
-                ['label' => 'Example', 'url' => ['/admin/example/index']],
-                ['label' => 'General', 'items' => [
+                ['label' => 'Акции', 'url' => ['/admin/sales/index']],
+                ['label' => 'Блог', 'url' => ['/admin/blog/index']],
+                ['label' => 'Услуги', 'url' => ['/admin/service/index']],
+                ['label' => 'Цены', 'url' => ['/admin/price/index']],
+                ['label' => 'Врачи', 'url' => ['/admin/doctor/index']],
+                ['label' => 'Отзывы', 'url' => ['/admin/review/index']],
+                ['label' => 'Примеры работ', 'url' => ['/admin/example/index']],
+                ['label' => 'Основное', 'items' => [
                     ['label' => 'Настройки', 'url' => ['/admin/settings/index']],
                     ['label' => 'Сертификаты', 'url' => ['/admin/sertificate/index']],
                     ['label' => 'Интерьер', 'url' => ['/admin/interior/index']],

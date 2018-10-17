@@ -7,6 +7,7 @@
 
 namespace app\commands;
 
+use app\models\Doctor;
 use yii\console\Controller;
 use yii\console\ExitCode;
 
@@ -52,7 +53,7 @@ class HelloController extends Controller
         $settings->facebook = 'facebook.com/nashastoma/';
         $settings->instagram = 'instagram.com/nashastoma/';
         $settings->email = 'info@nasha-stoma.ru';
-        $settings->map = 'яндекс карта';
+        $settings->map = 'https://yandex.ru/map-widget/v1/?um=constructor%3A7d4766c15e06e2148dcfbbd5e2c5efa96051a60a76a06a2c684218c73bd2a7c7&amp;source=constructor';
         $settings->about = '...';
         $settings->save();
 
@@ -68,47 +69,68 @@ class HelloController extends Controller
         $doc = new \app\models\Doctor();
         $doc->name = 'doc1';
         $doc->slug = 'doc1';
+        $doc->main_on = 1;
+        $doc->status = \app\models\Doctor::STATUS_ACTIVE;
         $doc->save();
 
         $doc2 = new \app\models\Doctor();
         $doc2->name = 'doc2';
         $doc2->slug = 'doc2';
+        $doc2->main_on = 1;
+        $doc2->status = \app\models\Doctor::STATUS_ACTIVE;
         $doc2->save();
 
         $ser = new \app\models\Service();
         $ser->name = 'ser1';
         $ser->slug = 'ser1';
+        $ser->status = \app\models\Doctor::STATUS_ACTIVE;
         $ser->save();
 
         $ser2 = new \app\models\Service();
         $ser2->name = 'ser2';
         $ser2->slug = 'ser2';
+        $ser2->status = \app\models\Doctor::STATUS_ACTIVE;
         $ser2->save();
 
         $ser3 = new \app\models\Service();
         $ser3->name = 'ser3';
         $ser3->slug = 'ser3';
+        $ser3->status = \app\models\Doctor::STATUS_ACTIVE;
         $ser3->save();
 
         $rew = new \app\models\Review();
         $rew->name = 'rew';
         $rew->slug = 'rew';
+        $rew->status = \app\models\Doctor::STATUS_ACTIVE;
         $rew->save();
 
         $rew2 = new \app\models\Review();
         $rew2->name = 'rew2';
         $rew2->slug = 'rew2';
+        $rew2->status = \app\models\Doctor::STATUS_ACTIVE;
         $rew2->save();
 
         $exa = new \app\models\Example();
-        $exa->name = 'rew';
-        $exa->slug = 'rew';
+        $exa->name = 'ex';
+        $exa->slug = 'ex';
+        $exa->status = \app\models\Doctor::STATUS_ACTIVE;
         $exa->save();
 
         $exa2 = new \app\models\Example();
         $exa2->name = 'exa2';
         $exa2->slug = 'exa2';
+        $exa2->status = \app\models\Doctor::STATUS_ACTIVE;
         $exa2->save();
 
+    }
+
+    public function dataPrice() {
+        $catPrice = new \app\models\PriceCategory();
+        $catPrice->name = 'someCategory';
+        $catPrice->save();
+
+        $catPrice2 = new \app\models\PriceCategory();
+        $catPrice2->name = 'someCategory';
+        $catPrice2->save();
     }
 }

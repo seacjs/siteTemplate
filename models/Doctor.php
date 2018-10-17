@@ -17,7 +17,11 @@ use Yii;
  * @property int $created_at
  * @property int $updated_at
  * @property string $content
+ * @property string $position
+ * @property string $specialization
+ * @property string $scientist
  * @property int $status
+ * @property int $main_on
  *
  * @property DoctorReview[] $doctorReviews
  * @property DoctorService[] $doctorServices
@@ -39,7 +43,7 @@ class Doctor extends FrontActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['created_at', 'updated_at', 'status'], 'integer'],
+            [['created_at', 'updated_at', 'status', 'main_on'], 'integer'],
             [['content', 'content2'], 'string'],
             [['name', 'slug', 'title', 'description', 'keywords', 'h1'], 'string', 'max' => 255],
             [['start_working'], 'integer'],
@@ -71,6 +75,7 @@ class Doctor extends FrontActiveRecord
             'specialization' => Yii::t('app', 'Специализация'), //  специализация
             'scientist' => Yii::t('app', 'Ученая степень'), //  ученая степерь
             'start_working' => Yii::t('app', 'Год начала работ'),
+            'main_on' => 'Отображать на главной(ведущий специалист)',
         ];
     }
 

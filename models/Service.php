@@ -68,6 +68,13 @@ class Service extends FrontActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getPrices() {
+        return $this->hasMany(Price::class, ['service_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getDoctors() {
         return $this->hasMany(Doctor::class, ['id' => 'doctor_id'])->viaTable('doctor_service', ['service_id' => 'id']);
     }

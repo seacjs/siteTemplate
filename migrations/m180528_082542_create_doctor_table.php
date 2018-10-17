@@ -36,6 +36,8 @@ class m180528_082542_create_doctor_table extends Migration
             'specialization' => $this->string(), //  специализация
             'scientist' => $this->string(), //  ученая степерь
             'start_working' => $this->integer(),
+            
+            'main_on' => $this->smallInteger(),
         ]);
 
     }

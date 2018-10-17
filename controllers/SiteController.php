@@ -2,13 +2,15 @@
 
 namespace app\controllers;
 
+use app\models\Doctor;
+use app\models\Review;
+use app\models\Service;
+use app\models\Settings;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
 
 class SiteController extends Controller
 {
@@ -61,37 +63,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $mapInfo = [
-            'phone' => '+7 (999) 999-99-99',
-            'address' => 'г. Брянск, ул. Ленина 16',
-            'work' => 'ужедневно с 9 до 21',
-            'email' => 'mail@mail.com',
-        ];
-        
         return $this->render('index', [
-            'mapInfo' => $mapInfo
-        ]);
-    }
-
-    /**
-     * Login action.
-     *
-     * @return Response|string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-
-        $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
+            'settings' =>  Settings::find()->one(),
+            'reviews' => Review::find()->where(['status' => Review::STATUS_ACTIVE])->all(),
+            'services' => Service::find()->where(['status' => Service::STATUS_ACTIVE])->all(),
+            'doctors' => Doctor::find()->where(['status' => Doctor::STATUS_ACTIVE])->all(),
+            'sales' => [],
         ]);
     }
 
@@ -108,20 +85,16 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays contact page.
+     * Displays prices page.
      *
-     * @return Response|string
+     * @return string
      */
-    public function actionContact()
+    public function actionPrices()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
+        $services = Service::find()->where(['status' => Service::STATUS_ACTIVE])->all();
+        return $this->render('prices',[
+            'services' => $services,
+            'settings' => Settings::find()->one(),
         ]);
     }
 
@@ -132,6 +105,8 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        return $this->render('about',[
+            'settings' => Settings::find()->one(),
+        ]);
     }
 }

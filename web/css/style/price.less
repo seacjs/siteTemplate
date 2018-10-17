@@ -1,0 +1,50 @@
+.callapse {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+.panel-group .panel, .panel {
+  border-radius: 0px;
+}
+.panel {
+  position: relative;
+}
+.panel-group .panel + .panel {
+  margin-top: 0px;
+}
+.panel-heading {
+  font-size: 18px;
+  padding: 0px 15px 0px 0px;
+}
+.active-panel {
+  color: @color-blue;
+  border-left: 2px solid @color-blue !important;
+}
+.panel-heading .panel-title {
+  background: url("/images/collapse-down.png") no-repeat center right;
+}
+.active-panel .panel-title {
+  background: url("/images/collapse-up.png") no-repeat center right;
+}
+.panel-title a {
+  width:100%;
+  display: block;
+  padding: 15px 0px 15px 15px;
+}
+.panel-body {
+    padding: 25px 0px;
+    background: #F9F9F9;
+}
+.panel-body li {
+    list-style: none;
+    padding: 15px 45px 15px 15px;
+    font-size: 16px;
+}
+.panel-body li .price {
+  color: @color-blue;
+}
+.panel-body li + li {
+    border-top: 1px solid #DDDDDD;
+}
+.panel-collapse.collapse.in {
+    border-left: 2px solid @color-blue;
+}
+

@@ -29,6 +29,7 @@ class Interior extends FrontActiveRecord
         $behaviors = parent::behaviors();
         ArrayHelper::remove($behaviors,'timestampBehavior');
         ArrayHelper::remove($behaviors,'sluggableBehavior');
+        ArrayHelper::remove($behaviors,'imageContentBehavior');
         return $behaviors;
     }
 

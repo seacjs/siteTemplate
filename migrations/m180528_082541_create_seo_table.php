@@ -26,6 +26,9 @@ class m180528_082541_create_seo_table extends Migration
 
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
+
+            'content' => $this->text(),
+            'status' => $this->smallInteger(),
         ]);
 
     }
