@@ -12,8 +12,8 @@ use yii\bootstrap\Modal;
 
     <div class="navbar-before">
         <div class="container position-relative">
-            <div class="navbar-before-left">11111</div>
-            <div class="navbar-before-right">22222</div>
+            <div class="navbar-before-left"><?=Yii::$app->params['settings']['address_short']?></div>
+            <div class="navbar-before-right"><?=Yii::$app->params['settings']['phone']?></div>
 
             <div class="btn btn-top">Записаться</div>
         </div>
@@ -25,7 +25,7 @@ use yii\bootstrap\Modal;
     NavBar::begin([
         'id' => 'navbar-main',
         'brandLabel' => '<div class="logo-img"></div><div class="navbar-label">Наша<br>Стоматология</div>' ,
-        'brandUrl' => '#jumbo',
+        'brandUrl' => '/',
         'options' => [
             'class' => ''
         ]
@@ -43,11 +43,11 @@ use yii\bootstrap\Modal;
             ],
             [
                 'label' => 'Цены',
-                'url' => '/price',
+                'url' => '/prices',
             ],
             [
                 'label' => 'Врачи',
-                'url' => '/doctors',
+                'url' => '/doctor',
             ],
             [
                 'label' => 'Контакты',

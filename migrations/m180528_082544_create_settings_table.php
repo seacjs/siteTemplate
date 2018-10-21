@@ -29,7 +29,7 @@ class m180528_082544_create_settings_table extends Migration
             'work_time' => $this->string(),
             'work_days' => $this->string(),
 
-            'map' => $this->string(),
+            'map' => $this->string(1024),
 
             'about' => $this->text(),
         ]);

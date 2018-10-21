@@ -1,21 +1,26 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: seacjs
- * Date: 16.10.2018
- * Time: 16:31
- */
 
 ?>
 
-<section class="section align-center">
-    <div class="container">
-        <h2>Интерьер</h2>
 
-        <div class="row">
+<?php if(!empty($images)):?>
+    <section class="section align-center">
+        <div class="container">
 
+            <h2>Интерьер</h2>
+
+            <div class="row">
+
+                <?php foreach($images as $image):?>
+
+                    <div class="col-sm-4">
+                        <img src="<?=$image->image?>" class="sertificate-img">
+                    </div>
+
+                <?php endforeach?>
+
+            </div>
 
         </div>
-
-    </div>
-</section>
+    </section>
+<?php endif ?>

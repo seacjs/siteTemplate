@@ -18,7 +18,6 @@ JS;
 
 $this->registerJs($sctipt, \yii\web\View::POS_READY);
 
-
 foreach($services as $key => $service) {
 
     $items[] = [
@@ -34,26 +33,45 @@ foreach($services as $key => $service) {
 
 ?>
 
+<!--BREADCRUMBS -->
 <div class="container">
-<h1><?=$this->title?></h1>
+    <div class="breadcrumb-before"></div>
+    <?= \yii\widgets\Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        'homeLink' => [
+            'label' => 'Главная',
+            'url' => '/',
+            ''
+        ]
+    ]) ?>
 
-<div class="">Цены на услуги клиники</div>
+    <div class="breadcrumb-after"></div>
+</div>
+<!--/BREADCRUMBS-->
 
-<?php echo \yii\bootstrap\Collapse::widget([
-    'items' => $items,
-]); ?>
 
-<!-- todo: some content here -->
 
-<!-- ------------------ -->
+<div class="container">
 
-<?=\app\widgets\SertificateSection::widget();?>
-<?=\app\widgets\InteriorSection::widget();?>
+    <h1><?=$this->title?></h1>
 
-<!-- ------------------ -->
+    <div class="">Цены на услуги клиники</div>
 
-<?=\app\widgets\ContactsSection::widget([
-    'settings' => $settings,
-]);?>
+    <?php echo \yii\bootstrap\Collapse::widget([
+        'items' => $items,
+    ]); ?>
+
+    <!-- todo: some content here -->
+
+    <!-- ------------------ -->
+
+    <?=\app\widgets\SertificateSection::widget();?>
+    <?=\app\widgets\InteriorSection::widget();?>
+
+    <!-- ------------------ -->
+
+    <?=\app\widgets\ContactsSection::widget([
+        'settings' => $settings,
+    ]);?>
 
 </div>

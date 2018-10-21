@@ -13,7 +13,6 @@ class ServicesSection extends \yii\bootstrap\Widget
      */
     public function run()
     {
-
         echo $this->render('services-section', [
             'services' => $this->services,
         ]);

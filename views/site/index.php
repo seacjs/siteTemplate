@@ -33,6 +33,14 @@ $this->title = "Наша Стоматология";
 
 <!-- ------------------ -->
 
+
+<?=\app\widgets\ExamplesSection::widget([
+    'examples' => $examples,
+]);?>
+
+
+<!-- ------------------ -->
+
 <?=\app\widgets\ReviewsSection::widget([
     'reviews' => $reviews,
 ]);?>

@@ -11,9 +11,16 @@ return [
         '/' => 'site/index',
         '/admin' => 'admin/default/index',
 
-
         'prices' => 'site/prices',
+        'contacts' => 'site/contacts',
+        'about' => 'site/about',
+        'sales' => 'site/sales',
 
+        '/service' => 'service/index',
+        '/service/<slug>' => 'service/view',
+
+        '/doctor' => 'doctor/index',
+        '/doctor/<slug>' => 'doctor/view',
 
         /* admin */
         [

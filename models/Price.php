@@ -11,8 +11,6 @@ use yii\helpers\ArrayHelper;
  * @property int $id
  * @property int $category_id
  * @property int $service_id
- * @property int $created_at
- * @property int $updated_at
  * @property string $name
  * @property string $description
  * @property string $info
@@ -63,8 +61,7 @@ class Price extends FrontActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'service_id', 'created_at', 'updated_at', 'display_variant', 'efficiency', 'speed', 'aesthetics', 'status'], 'integer'],
-            [['created_at', 'updated_at'], 'required'],
+            [['category_id', 'service_id', 'display_variant', 'efficiency', 'speed', 'aesthetics', 'status'], 'integer'],
             [['name', 'description', 'info', 'price', 'tags','categoryName'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => PriceCategory::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['service_id'], 'exist', 'skipOnError' => true, 'targetClass' => Service::className(), 'targetAttribute' => ['service_id' => 'id']],

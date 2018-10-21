@@ -3,7 +3,10 @@
 namespace app\controllers;
 
 use app\models\Doctor;
+use app\models\Example;
+use app\models\Price;
 use app\models\Review;
+use app\models\Sales;
 use app\models\Service;
 use app\models\Settings;
 use Yii;
@@ -68,7 +71,9 @@ class SiteController extends Controller
             'reviews' => Review::find()->where(['status' => Review::STATUS_ACTIVE])->all(),
             'services' => Service::find()->where(['status' => Service::STATUS_ACTIVE])->all(),
             'doctors' => Doctor::find()->where(['status' => Doctor::STATUS_ACTIVE])->all(),
-            'sales' => [],
+            'sales' => Sales::find()->where(['status' => Sales::STATUS_ACTIVE])
+                ->andWhere(['>=','date_at',time()])->all(),
+            'examples' => Example::find()->where(['status' => Review::STATUS_ACTIVE])->all(),
         ]);
     }
 
@@ -91,7 +96,12 @@ class SiteController extends Controller
      */
     public function actionPrices()
     {
-        $services = Service::find()->where(['status' => Service::STATUS_ACTIVE])->all();
+        $services = Service::find()
+            ->where(['service.status' => Service::STATUS_ACTIVE])
+            ->joinwith('prices')
+            ->orderBy(['price.category_id' => SORT_ASC])
+            ->all();
+
         return $this->render('prices',[
             'services' => $services,
             'settings' => Settings::find()->one(),
@@ -106,6 +116,21 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about',[
+            'settings' => Settings::find()->one(),
+        ]);
+    }
+
+    public function actionContacts()
+    {
+        return $this->render('contacts',[
+            'settings' => Settings::find()->one(),
+        ]);
+    }
+
+    public function actionSales()
+    {
+        return $this->render('sales',[
+            'sales' => Sales::find()->where(['status' => Sales::STATUS_ACTIVE])->all(),
             'settings' => Settings::find()->one(),
         ]);
     }

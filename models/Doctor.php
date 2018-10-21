@@ -92,4 +92,11 @@ class Doctor extends FrontActiveRecord
     public function getReviews() {
         return $this->hasMany(Review::class, ['id' => 'review_id'])->viaTable('doctor_review', ['doctor_id' => 'id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getExamples() {
+        return $this->hasMany(Example::class, ['id' => 'example_id'])->viaTable('example_doctor', ['doctor_id' => 'id']);
+    }
 }

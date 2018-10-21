@@ -42,6 +42,7 @@ AdminAsset::register($this);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
+                ['label' => 'Оборудование', 'url' => ['/admin/article/index']],
                 ['label' => 'Акции', 'url' => ['/admin/sales/index']],
                 ['label' => 'Блог', 'url' => ['/admin/blog/index']],
                 ['label' => 'Услуги', 'url' => ['/admin/service/index']],

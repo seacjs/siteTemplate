@@ -127,7 +127,7 @@ class ExampleController extends FrontController
         $model = $this->findModel($id);
 
         $fileModel = new File();
-        $fileModel->multiple = false;
+        $fileModel->multiple = true;
         $fileModel->files = $model->files;
         $post = Yii::$app->request->post();
         if ($model->load($post) && $model->save()) {

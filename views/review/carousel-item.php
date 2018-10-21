@@ -13,7 +13,7 @@
         <?php endforeach ?>
     </div>
 
-    <div class="review-item-content" style="heigh">
+    <div class="review-item-content" style="">
         <div style="width: 100px;">
             <?=\app\widgets\JuxtaposeWidget::widget([
                 'left_image' => 'https://pp.userapi.com/c629514/v629514735/2ff6f/nYtJrjpXs88.jpg?ava=1',

@@ -13,6 +13,9 @@ use app\assets\PhoneAsset;
 
 AppAsset::register($this);
 PhoneAsset::register($this);
+
+\Yii::$app->params['settings'] = \app\models\Settings::find()->one();
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -40,12 +43,9 @@ PhoneAsset::register($this);
 <?= $this->render('@app/views/layouts/block/header', [
 ]); ?>
 
- <?php if((Yii::$app->controller->id == 'site') && (Yii::$app->controller->action->id == 'index')):?>
-
-
-
+<?php if((Yii::$app->controller->id == 'site') && (Yii::$app->controller->action->id == 'index')):?>
 <?php else: ?>
-     <div class="container">
+     <div class="container hide">
          <div class="breadcrumb-before"></div>
          <?= Breadcrumbs::widget([
              'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

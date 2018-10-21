@@ -8,6 +8,7 @@
 namespace app\commands;
 
 use app\models\Doctor;
+use app\models\Price;
 use yii\console\Controller;
 use yii\console\ExitCode;
 
@@ -31,14 +32,11 @@ class HelloController extends Controller
 
         echo 'start hello';
 
-
         $this->settings();
         $this->data();
-
+        $this->dataPrice();
 
         echo ' ... end ';
-
-
 
         return ExitCode::OK;
     }
@@ -55,6 +53,8 @@ class HelloController extends Controller
         $settings->email = 'info@nasha-stoma.ru';
         $settings->map = 'https://yandex.ru/map-widget/v1/?um=constructor%3A7d4766c15e06e2148dcfbbd5e2c5efa96051a60a76a06a2c684218c73bd2a7c7&amp;source=constructor';
         $settings->about = '...';
+        $settings->work_days = 'ужедневно';
+        $settings->work_time = 'c 9  до 21';
         $settings->save();
 
         $interior = new \app\models\Interior();
@@ -64,8 +64,7 @@ class HelloController extends Controller
         $serificate->save();
 
     }
-    public function data()
-    {
+    public function data() {
         $doc = new \app\models\Doctor();
         $doc->name = 'doc1';
         $doc->slug = 'doc1';
@@ -126,11 +125,38 @@ class HelloController extends Controller
 
     public function dataPrice() {
         $catPrice = new \app\models\PriceCategory();
+        $catPrice->service_id = 1;
         $catPrice->name = 'someCategory';
         $catPrice->save();
 
         $catPrice2 = new \app\models\PriceCategory();
-        $catPrice2->name = 'someCategory';
+        $catPrice->service_id = 1;
+        $catPrice2->name = 'someCategory 2';
         $catPrice2->save();
+
+        $price = new Price();
+        $price->name = 'Консультация врача стоматолога-хирурга';
+        $price->status = Price::STATUS_ACTIVE;
+        $price->service_id = 1;
+        $price->category_id = null;
+        $price->price = '500';
+        $price->save();
+
+        $price2 = new Price();
+        $price2->name = 'Консультация врача стоматолога-хирурга кандидата медицинских наук';
+        $price2->status = Price::STATUS_ACTIVE;
+        $price2->service_id = 1;
+        $price2->category_id = null;
+        $price2->price = '600';
+        $price2->save();
+
+        $price3 = new Price();
+        $price3->name = 'Консультация супер';
+        $price3->status = Price::STATUS_ACTIVE;
+        $price3->service_id = 1;
+        $price3->category_id = 1;
+        $price3->price = '1500';
+        $price3->save();
+
     }
 }

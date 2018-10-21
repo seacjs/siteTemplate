@@ -13,9 +13,12 @@ class ContactsSection extends \yii\bootstrap\Widget
      */
     public function run()
     {
+
+        \Yii::$app->params['settings'] = \app\models\Settings::find()->one();
+
         if($this->settings != null) {
             echo $this->render('contacts-section', [
-                'settings' => $this->settings,
+                'settings' => \Yii::$app->params['settings'],
             ]);
         }
     }

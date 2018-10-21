@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'id',
             'name',
-            'slug',
+//            'slug',
 //            [
 //                'attribute' => 'created_at',
 //                'value' => function ($model, $index, $widget) {

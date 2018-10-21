@@ -8,6 +8,7 @@ class SalesSection extends \yii\bootstrap\Widget
 {
 
     public $sales= [];
+    public $noMargin = false;
     /**
      * {@inheritdoc}
      */
@@ -16,6 +17,7 @@ class SalesSection extends \yii\bootstrap\Widget
 
         echo $this->render('sales-section', [
             'sales' => $this->sales,
+            'noMargin' => $this->noMargin,
         ]);
 
     }

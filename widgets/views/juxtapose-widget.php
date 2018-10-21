@@ -10,4 +10,7 @@ JuxtaposeAsset::register($this);
     <img src="<?php echo $right_image?>" />
 </div>
 
-<style>.jx-knightlab {display: none !important;} .juxtapose img{width: auto !important;}</style>
+<style>
+    .jx-knightlab {display: none !important;}
+    .juxtapose img{width: auto !important;}
+</style>

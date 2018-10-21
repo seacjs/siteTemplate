@@ -12,19 +12,14 @@
 
             <?php
             $carouselItems = [];
-            foreach($reviews as $key => $review) {
+            foreach($examples as $key => $example) {
                 $carouselItems[] = [
-                    'content' => $this->render('@app/views/review/_carouser-item', [
-                        'review' => $review,
+                    'content' => $this->render('@app/views/example/_carouser-item', [
+                        'model' => $example,
                     ])
                 ];
             }
 
-            $test =  '<div style="width: 100px;">'
-                .\app\widgets\JuxtaposeWidget::widget([
-                    'left_image' => 'https://pp.userapi.com/c629514/v629514735/2ff6f/nYtJrjpXs88.jpg?ava=1',
-                    'right_image' => 'https://pp.userapi.com/c629514/v629514735/2ff6f/nYtJrjpXs88.jpg?ava=1',
-                ]) . '</div>';
             ?>
 
             <div class="reviews-wrap">
@@ -54,12 +49,7 @@
                         ],
                     ],
                     'itemOptions' => ['class' => 'carousel-reviews-item'],
-                    'items' => [
-                        ['content' => $test],
-                        ['content' => $test],
-                        ['content' => $test],
-                        ['content' => $test],
-                    ],
+                    'items' => $carouselItems,
                 ]); ?>
             </div>
 

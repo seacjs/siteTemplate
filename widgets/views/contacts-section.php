@@ -13,22 +13,20 @@
             <div class="map-inner">
                 <div class="map">
 <!-- https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3AeaXlHc75D7E8CYjmolHemOKo2jtAS6Jg&amp;width=100%25&amp;height=480&amp;lang=ru_RU&amp;scroll=false    -->
-                    <script type="text/javascript" charset="utf-8" async src=""></script>
+<!--                    <script type="text/javascript" charset="utf-8" async src=""></script>-->
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A7d4766c15e06e2148dcfbbd5e2c5efa96051a60a76a06a2c684218c73bd2a7c7&amp;width=100%25&amp;height=480&amp;lang=ru_RU&amp;scroll=true"></script>
                 </div>
                 <div class="map-info-wrap">
                     <div class="map-info">
-                        <div class="map-info-description">
-                            <div class="map-info-title">Телефон: </div>
-                        </div>
-                        <div class="map-info-description">
-                            <div class="map-info-title">Адрес: </div>
-                        </div>
-                        <div class="map-info-description">
-                            <div class="map-info-title">Часы работы: </div>
-                        </div>
-                        <div class="map-info-description">
-                            <div class="map-info-title">E-Mail: </div>
-                        </div>
+
+                        <div class="map-info-main-title">«Наша Стоматология»</div>
+                        <div class="map-info-title">Адрес:</div>
+                        <div class="map-info-description"><?=$settings->address?></div>
+
+                        <div class="map-info-main-title"><?=$settings->phone?></div>
+                        <div class="map-info-title">Мы работаем:</div>
+                        <div class="map-info-description"><?=$settings->work_time?><br><?=$settings->work_days?></div>
+
                     </div>
                 </div>
             </div>

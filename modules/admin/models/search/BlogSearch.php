@@ -69,8 +69,7 @@ class BlogSearch extends Blog
             self::tableName().'.updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', self::tableName().'.slug', $this->slug])
-            ->andFilterWhere(['like', self::tableName().'.name', $this->name]);
+        $query->andFilterWhere(['like', self::tableName().'.name', $this->name]);
 
         return $dataProvider;
     }

@@ -31,5 +31,5 @@ if(preg_match("/(1)[0-9]$/",$work)) {
         <div class="doctor-basic-scientist"><?=$model->scientist?></div>
     </div>
     <div class="doctor-basic-start_working">Опыт работы <?= $work ?> <?=$comment?></div>
-    <a href="" class="doctor-basic-button">страница врача</a>
+    <a href="/doctor/<?=$model->slug?>" class="doctor-basic-button">страница врача</a>
 </div>

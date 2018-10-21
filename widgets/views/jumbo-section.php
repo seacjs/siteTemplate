@@ -6,15 +6,16 @@
  * Time: 16:34
  */
 
+$image = ($image === null ? '/images/jumbo.png' : $image);
+
 ?>
 
 
-<section class="section" id="jumbo">
+<section class="section" id="jumbo" style="background: url(<?=$image?>) no-repeat center; background-size: cover;">
 
     <div class="container">
-        <h1>Наша Стоматология</h1>
-        <p class="description">Установка брекетов Mini Diamond<br>
-            13 500 руб.</p>
+        <h1><?=$h1?></h1>
+        <p class="description"><?=$description?></p>
         <a class="btn btn-main" href="#callbackwidget">Записаться</a>
     </div>
 

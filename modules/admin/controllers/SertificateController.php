@@ -124,7 +124,7 @@ class SertificateController extends FrontController
         $model = $this->findModel($id);
 
         $fileModel = new File();
-        $fileModel->multiple = false;
+        $fileModel->multiple = true;
         $fileModel->files = $model->files;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

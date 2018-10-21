@@ -4,15 +4,34 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = 'О нас';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        This is the About page. You may modify the following file to customize its content:
-    </p>
+<!--BREADCRUMBS -->
+<div class="container">
+    <div class="breadcrumb-before"></div>
+    <?= \yii\widgets\Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        'homeLink' => [
+            'label' => 'Главная',
+            'url' => '/',
+            ''
+        ]
+    ]) ?>
 
-    <code><?= __FILE__ ?></code>
+    <div class="breadcrumb-after"></div>
 </div>
+<!--/BREADCRUMBS-->
+
+<div class="container">
+    <?=$settings->about?>
+</div>
+
+<!-- ------------------ -->
+<?=\app\widgets\SertificateSection::widget();?>
+<?=\app\widgets\InteriorSection::widget();?>
+<?=\app\widgets\ContactsSection::widget([
+    'settings' => $settings,
+]);?>
+<!-- ------------------ -->

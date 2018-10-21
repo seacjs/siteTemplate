@@ -2,18 +2,24 @@
 namespace app\widgets;
 
 
+use app\models\Sertificate;
+
 class SertificateSection extends \yii\bootstrap\Widget
 {
 
-    public $sertificates = [];
+    public $images = [];
     /**
      * {@inheritdoc}
      */
     public function run()
     {
+        if(empty($this->images)) {
+            $model = Sertificate::find()->one();
+            $this->images = $model->files;
+        }
 
         echo $this->render('sertificates-section', [
-            'sertificates' => $this->sertificates,
+            'images' => $this->images,
         ]);
 
     }

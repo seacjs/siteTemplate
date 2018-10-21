@@ -85,4 +85,11 @@ class Service extends FrontActiveRecord
     public function getReviews() {
         return $this->hasMany(Review::class, ['id' => 'review_id'])->viaTable('service_review', ['service_id' => 'id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getExamples() {
+        return $this->hasMany(Example::class, ['id' => 'example_id'])->viaTable('example_service', ['service_id' => 'id']);
+    }
 }

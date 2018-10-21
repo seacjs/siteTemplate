@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Settings;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 
 /**
@@ -9,6 +11,12 @@ use yii\web\Controller;
  */
 class FrontController extends Controller
 {
+
+    public function beforeAction($action)
+    {
+
+        return parent::beforeAction($action);
+    }
 
     /**
      * @inheritdoc

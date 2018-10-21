@@ -7,7 +7,7 @@ $imageStyle = isset($model->file) ? 'background: url('.$model->file->image.') no
 
 ?>
 
-<a href="/.../<?=$model->slug?>">
+<a href="/service/<?=$model->slug?>">
     <div class="service-basic-item">
         <div class="service-basic-item-image" style="<?=$imageStyle?>">
             <div class="service-basic-item-title"><?=$model->name?></div>
