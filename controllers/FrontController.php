@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\Settings;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
 
@@ -12,6 +14,31 @@ use yii\web\Controller;
 class FrontController extends Controller
 {
 
+    /**
+     * {@inheritdoc}
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
+        ];
+    }
     public function beforeAction($action)
     {
 

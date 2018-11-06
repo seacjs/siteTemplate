@@ -250,6 +250,7 @@ class File extends ActiveRecord
             $result[] = [
                 'caption' => $file->title,
                 'url'=> '/admin/'.Yii::$app->controller->id.'/file-delete/' . $file->id,
+                'key' => $file->id,
             ];
         }
         return $result;

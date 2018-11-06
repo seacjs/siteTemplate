@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Html::a(Yii::t('app', 'Create ' . Yii::$app->controller->id), ['create'], ['class' => 'btn btn-success']) ?>
 
     </p>
-
+    <div class="box">
     <!-- \himiklab\sortablegrid\SortableGridView -->
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -81,5 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    </div>
+
     <?php Pjax::end(); ?>
 </div>

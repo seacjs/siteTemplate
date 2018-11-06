@@ -25,10 +25,11 @@
         "keltstr/yii2-simplehtmldom": "dev-master",
         "omicronsoft/yii2-owl-carousel": "*",
         "lanselot/yii2-parallax-widget": "*",
-        "newerton/yii2-fancybox": "dev-master",
         "yiisoft/yii2-jui": "^2.0",
-        "2amigos/yii2-date-picker-widget": "~1.0",
-        "kartik-v/yii2-widget-datepicker": "@dev"
+        "kartik-v/yii2-widget-datepicker": "@dev",
+        "branchonline/yii2-lightbox": "*",
+        "nezhelskoy/yii2-highlight": "*",
+        "dmstr/yii2-adminlte-asset": "2.*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

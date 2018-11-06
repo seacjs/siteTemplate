@@ -17,6 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
+    <div class="box">
     <!-- \himiklab\sortablegrid\SortableGridView -->
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -31,5 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
+    </div>
+
     <?php Pjax::end(); ?>
 </div>

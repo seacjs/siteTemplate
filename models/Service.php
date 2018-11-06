@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "service".
@@ -18,6 +20,7 @@ use Yii;
  * @property int $updated_at
  * @property string $content
  * @property string $short_content
+ * @property string $jumbo_description
  * @property int $status
  */
 class Service extends FrontActiveRecord
@@ -37,8 +40,9 @@ class Service extends FrontActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['created_at', 'updated_at', 'status'], 'integer'],
+            [['created_at', 'updated_at', 'status','parent_id'], 'integer'],
             [['content'], 'string'],
+            [['jumbo_description'], 'string', 'max' => 512],
             [['name','slug','title', 'description', 'keywords', 'h1', 'short_content'], 'string', 'max' => 255],
             [['slug'],'safe']
         ];
@@ -62,7 +66,29 @@ class Service extends FrontActiveRecord
             'content' => Yii::t('app', 'Content'),
             'short_content' => Yii::t('app', 'Content Description'),
             'status' => Yii::t('app', 'Status'),
+            'parent_id' => Yii::t('app', 'Parent ID'),
+            'jumbo_description' => Yii::t('app','Jumbo Description')
         ];
+    }
+
+    public function getChildrenIds() {
+        $ids = [];
+        $children = self::find()->where([
+            'parent_id' => $this->id,
+        ])->all();
+        foreach($children as $child) {
+            $ids[] = $child->id;
+            $ids = ArrayHelper::merge($ids,
+                $child->getChildrenIds());
+        }
+        return $ids;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParent() {
+        return $this->hasMany(Service::class, ['parent_id' => 'id']);
     }
 
     /**
@@ -76,20 +102,29 @@ class Service extends FrontActiveRecord
      * @return \yii\db\ActiveQuery
      */
     public function getDoctors() {
-        return $this->hasMany(Doctor::class, ['id' => 'doctor_id'])->viaTable('doctor_service', ['service_id' => 'id']);
+        return $this->hasMany(Doctor::class, ['id' => 'doctor_id'])->viaTable('doctor_service', ['service_id' => 'id'])
+            ->where([
+                'doctor.status' => Doctor::STATUS_ACTIVE
+            ]);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getReviews() {
-        return $this->hasMany(Review::class, ['id' => 'review_id'])->viaTable('service_review', ['service_id' => 'id']);
+        return $this->hasMany(Review::class, ['id' => 'review_id'])->viaTable('service_review', ['service_id' => 'id'])
+            ->where([
+                'review.status' => Review::STATUS_ACTIVE
+            ]);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getExamples() {
-        return $this->hasMany(Example::class, ['id' => 'example_id'])->viaTable('example_service', ['service_id' => 'id']);
+        return $this->hasMany(Example::class, ['id' => 'example_id'])->viaTable('example_service', ['service_id' => 'id'])
+            ->where([
+                'example.status' => Example::STATUS_ACTIVE
+            ]);
     }
 }

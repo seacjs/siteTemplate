@@ -14,7 +14,19 @@
                 <?php foreach($images as $image):?>
 
                     <div class="col-sm-4">
-                        <img src="<?=$image->image?>" class="sertificate-img">
+                        <div class="interior-img-wrap">
+                            <?= \branchonline\lightbox\Lightbox::widget([
+                                'files' => [
+                                    [
+                                        'thumbOptions' => [
+                                            'class' => 'interior-img',
+                                        ],
+                                        'thumb' => $image->thumbnail,
+                                        'original' => $image->image,
+                                    ],
+                                ]
+                            ]);?>
+                        </div>
                     </div>
 
                 <?php endforeach?>

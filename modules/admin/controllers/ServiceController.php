@@ -110,6 +110,7 @@ class ServiceController extends FrontController
         $model = new Service();
         $model->scenario = $model::SCENARIO_CREATE;
         $model->status = $model::STATUS_DRAFT;
+        $model->name = 'no-name';
         $model->save();
         return $this->redirect(['update', 'id' => $model->id]);
     }
@@ -126,7 +127,7 @@ class ServiceController extends FrontController
         $model = $this->findModel($id);
 
         $fileModel = new File();
-        $fileModel->multiple = false;
+        $fileModel->multiple = true;
         $fileModel->files = $model->files;
         $post = Yii::$app->request->post();
 

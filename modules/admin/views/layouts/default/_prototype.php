@@ -54,6 +54,7 @@ AdminAsset::register($this);
                     ['label' => 'Настройки', 'url' => ['/admin/settings/index']],
                     ['label' => 'Сертификаты', 'url' => ['/admin/sertificate/index']],
                     ['label' => 'Интерьер', 'url' => ['/admin/interior/index']],
+                    ['label' => 'Seo', 'url' => ['/admin/seo/index']],
                 ]],
                 Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/admin/default/login']]

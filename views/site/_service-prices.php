@@ -14,7 +14,8 @@
                 </div>
             <?php endif?>
             <div class="col-sm-8 col-xs-8"><?=$price->name?></div>
-            <div class="col-sm-4 col-xs-4 align-right price"><?=$price->price?></div>
+            <div class="col-sm-4 col-xs-4 align-right price"><?=$price->price?> руб</div>
+            <div class="clearfix visible-xs"></div>
             <div class="col-sm-12">
                 <?php if(trim($price->description) != ''):?>
                     <div class="description">

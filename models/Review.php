@@ -67,13 +67,23 @@ class Review extends FrontActiveRecord
      * @return \yii\db\ActiveQuery
      */
     public function getDoctors() {
-        return $this->hasMany(Doctor::class, ['id' => 'doctor_id'])->viaTable('doctor_review', ['review_id' => 'id']);
+        return $this->hasMany(Doctor::class, ['id' => 'doctor_id'])->viaTable('doctor_review', ['review_id' => 'id'])
+            ->where([
+                'doctor.status' => Doctor::STATUS_ACTIVE
+            ]);
+
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getServices() {
-        return $this->hasMany(Service::class, ['id' => 'service_id'])->viaTable('service_review', ['review_id' => 'id']);
+        return $this->hasMany(Service::class, ['id' => 'service_id'])->viaTable('service_review', ['review_id' => 'id'])
+            ->where([
+                'service.status' => Service::STATUS_ACTIVE
+            ])
+            ->andWhere([
+                'service.parent_id' => null
+            ]);
     }
 }

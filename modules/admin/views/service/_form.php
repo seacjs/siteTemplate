@@ -22,7 +22,17 @@ use dosamigos\ckeditor\CKEditor;
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
-    
+
+    <?= $form->field($model, 'parent_id')->dropDownList(
+            $model::find()
+                ->where(['not in','id', $model->id])
+                ->select('name')
+                ->indexBy('id')
+                ->column()
+    ,['prompt' => 'нет родителя'])?>
+
+    <?= $form->field($model, 'jumbo_description')->textInput(['maxlength' => true]) ?>
+
     <hr>
 
     <h3>Seo tags</h3>
@@ -45,6 +55,7 @@ use dosamigos\ckeditor\CKEditor;
         'options' => ['rows' => 6],
         'preset' => 'full',
         'clientOptions' => [
+            'contentsCss' => '/css/style.css',
             'filebrowserUploadUrl' => '/admin/'.Yii::$app->controller->id.'/file-upload-cke?component='.Yii::$app->controller->id.'&component_id='.$model->id.'&multiple=false&model='.$model->classname(),
             'filebrowserUploadMethod' => 'xhr'
         ],

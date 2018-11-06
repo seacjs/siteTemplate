@@ -23,7 +23,7 @@ class AdminAsset extends AssetBundle
         'css/components/callout.css',
 
         /* style */
-        'css/admin.css'
+        'css/admin-default.css'
     ];
 
     public $js = [

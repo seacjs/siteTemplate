@@ -36,8 +36,11 @@ $margin = $noMargin ? 'margin-top: 60px !important;top:0px !important;' : '';
             <div class="clearfix"></div>
             <div class="row">
                 <div class="col-sm-12 align-left">
-                    <a class="btn btn-main" href="#callbackwidget">Записаться</a>
-                    <div class="sales-info">← Запишитесь и мы продлим срок действия акции персонально для вас!</div>
+<!--                    <a class="btn btn-main" href="#callbackwidget">Записаться</a>-->
+                    <?=\app\widgets\CallbackWidget::widget([
+                        'toggleButtonClass' => 'btn btn-main'
+                    ])?>
+                    <div class="sales-info"><span class="hidden-xs hidden-sm">← </span>Запишитесь и мы продлим срок действия акции персонально для вас!</div>
                 </div>
             </div>
             <div class="clearfix"></div>

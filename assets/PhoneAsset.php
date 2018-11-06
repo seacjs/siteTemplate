@@ -19,6 +19,6 @@ class PhoneAsset extends AssetBundle
         'position' => \yii\web\View::POS_END
     ];
     public $js = [
-        'https://cdn.envybox.io/widget/cbk.js?wcb_code=8ca4430d4331708ad3f1b38690dc0c93',
+        'https://cdn.envybox.io/widget/cbk.js?wcb_code=8154862ae8b28b881876225cb747c3d9',
     ];
 }

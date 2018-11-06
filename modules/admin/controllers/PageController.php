@@ -108,6 +108,7 @@ class PageController extends FrontController
         $model = new Page();
         $model->scenario = $model::SCENARIO_CREATE;
         $model->status = $model::STATUS_DRAFT;
+        $model->name = 'no-name';
         $model->save();
         return $this->redirect(['update', 'id' => $model->id]);
     }

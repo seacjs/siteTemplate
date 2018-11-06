@@ -2,7 +2,7 @@
 /* HEADER --- START */
 header {
     width: 100%;
-    z-index: 10000;
+    z-index: 1000;
     background: @color-white;
     height: 90px;
 }
@@ -32,7 +32,7 @@ header .navbar {
     //box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
 }
 header .navbar-nav {
-    overflow-x: hidden;
+    overflow-x: visible;
 }
 header .navbar .navbar-toggle {
     background: #fff;
@@ -66,15 +66,13 @@ header .nav > li.active > a {
 }
 .navbar-default .navbar-nav > li > a {
     font-size: 18px;
-    padding: 24px 16px;
+    padding: 22px 16px;
 }
 .navbar-brand {
     margin-top: 0px;
     position: inherit !important;
 }
-.navbar-toggle {
-    display: none;
-}
+
 .top-menu {
     float: right;
 }
@@ -94,10 +92,10 @@ header .logo-img {
     display:inline-block;
 }
 header .navbar-label {
-    padding: 10px 16px;
+    padding: 13px 16px;
     font-size: 14px;
     color: @color-white;
-    opacity: 0.7;
+    opacity: 1;
     display:inline-block;
     vertical-align: top;
     line-height: normal;
@@ -105,6 +103,7 @@ header .navbar-label {
 header .nav > li {
     padding-left: 10px;
     padding-right: 10px;
+    height: 60px;
 }
 header .nav > li > a {
     font-size: 16px !important;
@@ -134,7 +133,79 @@ header .btn-top {
 .navbar-default .container {
     position: relative;
 }
+.navbar-nav > li > .dropdown-menu {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    padding: 15px 0px;
+}
+.dropdown-menu > li {
+    padding: 0px 20px;
+}
+.dropdown-menu > li:hover {
+    background-color: #f5f5f5;
+}
+.dropdown-menu > li > a {
+    padding: 5px 0px;
+    font-weight:300;
+    color: @color-blue;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    background: @color-blue !important;
+}
+.dropdown-submenu {
+    position: relative;
+    list-style: none;
+}
+.caret-right {
+    padding-right:15px;
+}
+.caret-right:after {
+    content: '';
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    right:10px;
+    top: 10px;
+    display: inline-block;
+    background: url('/images/caret_right.png') no-repeat center right;
+    background-size: contain;
+}
+.dropdown-submenu a {
+    display: block;
+}
+.dropdown-submenu > ul {
+    min-width: 160px;
+    width: auto;
+    list-style: none;
+    background-color: #fff;
+    display:none;
+    position: absolute;
+    top: -15px;
+    left: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    border-radius: 7px;
+    box-sizing: border-box;
+    padding: 15px 0px;
+}
+.dropdown-submenu > ul > li {
+    padding: 5px 20px;
+    font-weight:300;
+    color: @color-blue;
+}
+.dropdown-submenu > ul > li:hover {
+    color: #262626;
+    background-color: #f5f5f5;
+}
+.dropdown-submenu:hover > ul{
+    display:block;
+}
+
 @media (max-width: 992px) {
+    .navbar-default .navbar-nav > li > a {
+        padding: 22px 11px;
+    }
     #navbar-main-collapse {
         left: 160px;
     }
@@ -153,19 +224,48 @@ header .btn-top {
     }
     .navbar-toggle {
         border: none !important;
-        /*margin-right: 0px !important;*/
+        position: relative;
+        float: right;
+        background: @color-blue !important;
+        padding: 9px 10px;
+        margin-top: 15px;
+        margin-bottom: 8px;
+        margin-right: -15px;
     }
-    header .logo-img {
+    .navbar-toggle .icon-bar{
+        background-color: #fff !important;
     }
+    #navbar-main-collapse {
+        background: @color-blue;
+        width: 100%;
+        left: 15px !important;
+        position: absolute;
+        text-align: left;
+        top: 60px;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .top-menu {
+        float: none !important;
+        padding-left: 15px !important;
+    }
+    .dropdown-menu {
+        display: none !important;
+    }
+    .caret {
+        display: none !important;
+    }
+
     header .logo-img {
-        background: url('/images/logo.jpg') no-repeat center left;
+        background: url('/images/logo.png') no-repeat center left;
         background-size: contain;
     }
     header .navbar-brand {
         margin-top: 0px !important;
         padding: 0px 0px 10px 15px!important;
     }
-    header .top-menu {
-
+    .navbar-before-left {
+       display: none !important;
     }
+
 }

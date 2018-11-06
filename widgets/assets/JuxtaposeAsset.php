@@ -18,6 +18,7 @@ class JuxtaposeAsset extends AssetBundle
         'https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css'
     ];
     public $js = [
+//        '/js/juxtapose.js',
         'https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js'
     ];
 }

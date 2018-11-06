@@ -83,20 +83,42 @@ class Doctor extends FrontActiveRecord
      * @return \yii\db\ActiveQuery
      */
     public function getServices() {
-        return $this->hasMany(Service::class, ['id' => 'service_id'])->viaTable('doctor_service', ['doctor_id' => 'id']);
+        return $this->hasMany(Service::class, ['id' => 'service_id'])->viaTable('doctor_service', ['doctor_id' => 'id'])
+            ->where([
+                'service.status' => Service::STATUS_ACTIVE
+            ]);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMainServices() {
+        return $this->hasMany(Service::class, ['id' => 'service_id'])->viaTable('doctor_service', ['doctor_id' => 'id'])
+            ->where([
+                'service.status' => Service::STATUS_ACTIVE
+            ])
+            ->andWhere([
+                'service.parent_id' => null
+            ]);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getReviews() {
-        return $this->hasMany(Review::class, ['id' => 'review_id'])->viaTable('doctor_review', ['doctor_id' => 'id']);
+        return $this->hasMany(Review::class, ['id' => 'review_id'])->viaTable('doctor_review', ['doctor_id' => 'id'])
+            ->where([
+                'review.status' => Review::STATUS_ACTIVE
+            ]);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getExamples() {
-        return $this->hasMany(Example::class, ['id' => 'example_id'])->viaTable('example_doctor', ['doctor_id' => 'id']);
+        return $this->hasMany(Example::class, ['id' => 'example_id'])->viaTable('example_doctor', ['doctor_id' => 'id'])
+            ->where([
+                'example.status' => Example::STATUS_ACTIVE
+            ]);
     }
 }

@@ -34,6 +34,8 @@ class m180528_082541_create_service_table extends Migration
             'parent_id' => $this->integer(),
             'short_content' => $this->string(),
 
+            'jumbo_description' => $this->string(512),
+
         ]);
 
     }

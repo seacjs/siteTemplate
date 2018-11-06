@@ -47,8 +47,9 @@ use dosamigos\ckeditor\CKEditor;
         <!--todo: сделать возможным загрузку файлов если на странице есть несколько виджетов (а то чего активируется только один, остальыне блочаться)-->
     <?= $form->field($model, 'content')->widget(CKEditor::class, [
         'options' => ['rows' => 6],
-        'preset' => 'basic',
+        'preset' => 'full',
         'clientOptions' => [
+            'contentsCss' => '/css/style.css',
             'filebrowserUploadUrl' => '/admin/'.Yii::$app->controller->id.'/file-upload-cke?component='.Yii::$app->controller->id.'&component_id='.$model->id.'&multiple=false&model='.$model->classname(),
             'filebrowserUploadMethod' => 'xhr'
         ],

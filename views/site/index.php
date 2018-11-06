@@ -4,16 +4,23 @@ use yii\bootstrap\Html;
 use yii\bootstrap\Modal;
 use yii\web\View;
 
-
 /* @var $this yii\web\View */
 
-$this->title = "Наша Стоматология";
-//$this->registerMetaTag(['name' => 'keywords', 'content' => 'yii, framework, php'], 'keywords');
-//$this->registerMetaTag(['name' => 'description', 'content' => ''], 'description');
+/* SEO START*/
+$seo = \app\models\Seo::find()
+    ->select(['slug','title','description','keywords','h1'])
+    ->where(['slug'=>'main'])
+    ->one();
+
+$this->title = $seo->title;
+$this->registerMetaTag(['name' => 'keywords', 'content' => $seo->keywords], 'keywords');
+$this->registerMetaTag(['name' => 'description', 'content' => $seo->description], 'description');
+/* SEO END*/
+
 
 ?>
 
-<?=\app\widgets\JumboSection::widget();?>
+<?=\app\widgets\JumboSection::widget(['h1' => $seo->h1]);?>
 
 <!-- ------------------ -->
 
@@ -24,6 +31,13 @@ $this->title = "Наша Стоматология";
     'sales' => $sales,
 ]);?>
 
+<!-- ------------------ -->
+
+<!--<div class="container">-->
+<!---->
+<!--    --><?php //echo $this->render('@app/views/elements/all') ?>
+<!---->
+<!--</div>-->
 
 <!-- ------------------ -->
 
@@ -43,6 +57,13 @@ $this->title = "Наша Стоматология";
 
 <?=\app\widgets\ReviewsSection::widget([
     'reviews' => $reviews,
+]);?>
+
+<!-- ------------------ -->
+
+
+<?=\app\widgets\BlogSection::widget([
+    'blogs' => $blogs,
 ]);?>
 
 <!-- ------------------ -->

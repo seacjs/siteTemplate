@@ -80,7 +80,8 @@ class FrontActiveRecord extends \yii\db\ActiveRecord
                 'class' => SluggableBehavior::className(),
                 'attribute' => 'name',
                 'slugAttribute' => 'slug',
-                'ensureUnique' => true
+                'ensureUnique' => true,
+                'preserveNonEmptyValues' => true,
             ],
         ]);
     }

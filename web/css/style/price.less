@@ -76,14 +76,23 @@
   position: absolute;
   right: 0px;
   top: 0px;
-  width: 150px;
-  padding: 13px 23px 0px 0px;
+  width: 250px;
+  padding: 18px 23px 0px 0px;
   text-align: right;
   font-size: 24px;
   color: @color-blue;
 }
 .line-price-card .description {
-  padding-right: 120px;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #444444;
+  padding-right: 230px;
+}
+
+@media (max-width: 768px) {
+  .line-price-card .price-value {position: relative;text-align: left;}
+  .line-price-card .description {padding-right: 23px}
 }
 
 /*
@@ -104,12 +113,12 @@
 }
 .basic-price-card .image-wrap img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 .basic-price-card .name {
   color: @color-blue;
   font-size: 24px;
-  font-weight: 100;
+  font-weight: 300;
   padding: 0px 35px 10px;
 }
 .basic-price-card .tags {
@@ -125,7 +134,7 @@
   display: inline-block;
 }
 .basic-price-card .description {
-  font-weight: 100;
+  font-weight: 300;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
   padding: 0px 35px 8px;
@@ -134,7 +143,7 @@
   margin-top:10px;
   padding: 20px 35px;
   color: @color-blue;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 24px;
   background: #F9F9F9;
 }
@@ -162,12 +171,12 @@
 }
 .advanced-price-card .image-wrap img {
   width: 100%;
-  height:100%;
+  height:auto;
 }
 .advanced-price-card .name {
   color: @color-blue;
   font-size: 24px;
-  font-weight: 100;
+  font-weight: 300;
   padding: 0px 35px 10px;
 }
 .advanced-price-card .star-wrap {
@@ -184,7 +193,7 @@
   color: #CCCCCC;
 }
 .advanced-price-card .description {
-  font-weight: 100;
+  font-weight: 300;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.7);
   padding: 0px 35px 8px;
@@ -193,7 +202,7 @@
   margin-top:20px;
   padding: 35px 35px;
   color: @color-blue;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 24px;
   background: #F9F9F9;
 }
@@ -202,5 +211,14 @@
   font-size: 14px;
   color: rgba(0, 0, 0, 0.7);
 }
+.price-page-description {
+  padding-bottom: 15px;
+}
 
+@media (max-width: 768px) {
+  .price-container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
 

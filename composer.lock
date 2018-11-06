@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe81d157a56c600438c460f4220110d3",
+    "content-hash": "292942452c1218a34bc619d52261ebd0",
     "packages": [
         {
             "name": "2amigos/yii2-ckeditor-widget",
@@ -66,65 +66,48 @@
             "time": "2015-04-30T12:22:25+00:00"
         },
         {
-            "name": "2amigos/yii2-date-picker-widget",
-            "version": "1.0.7",
+            "name": "almasaeed2010/adminlte",
+            "version": "v2.4.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2amigos/yii2-date-picker-widget.git",
-                "reference": "d09c2444e8c2329e38528bba77002dd65186c1ff"
+                "url": "https://github.com/almasaeed2010/AdminLTE.git",
+                "reference": "d9e68301848a95dff2e2dbef6569e617a9b3fa30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2amigos/yii2-date-picker-widget/zipball/d09c2444e8c2329e38528bba77002dd65186c1ff",
-                "reference": "d09c2444e8c2329e38528bba77002dd65186c1ff",
+                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/d9e68301848a95dff2e2dbef6569e617a9b3fa30",
+                "reference": "d9e68301848a95dff2e2dbef6569e617a9b3fa30",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/bootstrap-datepicker": "1.7.0",
-                "yiisoft/yii2": ">=2.0.9",
-                "yiisoft/yii2-bootstrap": "*"
+                "bower-asset/jquery": ">=1.9.0 <4.0.0",
+                "composer/installers": "1.*"
             },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
-                "asset-installer-paths": {
-                    "bower-asset-library": "vendor/bower"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "dosamigos\\datepicker\\": "src"
-                }
-            },
+            "type": "template",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "2amigOS! Consulting Group",
-                    "email": "hola@2amigos.us",
-                    "homepage": "http://2amigos.us",
-                    "role": "Developer"
+                    "name": "Abdullah Almsaeed",
+                    "email": "abdullah@almsaeedstudio.com"
                 }
             ],
-            "description": "Bootstrap DatePicker widget for Yii2.",
-            "homepage": "http://yiiwheels.com/extension/bootstrap-datepicker",
+            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 3",
+            "homepage": "https://adminlte.io/",
             "keywords": [
-                "2amigos",
-                "datepicker",
-                "extension",
-                "widget",
-                "yii",
-                "yii 2",
-                "yii2"
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
             ],
-            "time": "2017-07-05T05:52:03+00:00"
+            "time": "2018-07-15T18:48:11+00:00"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -146,51 +129,6 @@
             "type": "bower-asset",
             "license": [
                 "MIT"
-            ]
-        },
-        {
-            "name": "bower-asset/bootstrap-datepicker",
-            "version": "v1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/uxsolutions/bootstrap-datepicker.git",
-                "reference": "d364be5b066b38f3675a5a1dc174ce1ab1f3360e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/uxsolutions/bootstrap-datepicker/zipball/d364be5b066b38f3675a5a1dc174ce1ab1f3360e",
-                "reference": "d364be5b066b38f3675a5a1dc174ce1ab1f3360e",
-                "shasum": null
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.7.1,<4.0.0"
-            },
-            "type": "bower-asset",
-            "license": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "name": "bower-asset/fancybox",
-            "version": "V2.1.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fancyapps/fancybox.git",
-                "reference": "b708e8060cefd45c97981143f85d4094e3d6e18c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fancyapps/fancybox/zipball/b708e8060cefd45c97981143f85d4094e3d6e18c",
-                "reference": "b708e8060cefd45c97981143f85d4094e3d6e18c",
-                "shasum": null
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.10",
-                "bower-asset/jquery-mousewheel": "~3.1.3"
-            },
-            "type": "bower-asset",
-            "license": [
-                "GPLv3"
             ]
         },
         {
@@ -235,25 +173,6 @@
             ]
         },
         {
-            "name": "bower-asset/jquery-mousewheel",
-            "version": "3.1.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jquery/jquery-mousewheel.git",
-                "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-mousewheel/zipball/67289b6b2aa0066d7d78a5807f520387135ffb22",
-                "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22",
-                "shasum": null
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.2.2"
-            },
-            "type": "bower-asset"
-        },
-        {
             "name": "bower-asset/jquery-ui",
             "version": "1.12.1",
             "source": {
@@ -273,6 +192,25 @@
             "type": "bower-asset",
             "license": [
                 "MIT"
+            ]
+        },
+        {
+            "name": "bower-asset/lightbox2",
+            "version": "2.7.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:lokesh/lightbox2.git",
+                "reference": "2e7daa84b9cf6412084ed5c97fdb448942c62d31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lokesh/lightbox2/zipball/2e7daa84b9cf6412084ed5c97fdb448942c62d31",
+                "reference": "2e7daa84b9cf6412084ed5c97fdb448942c62d31",
+                "shasum": null
+            },
+            "type": "bower-asset",
+            "license": [
+                "CC BY 2.5"
             ]
         },
         {
@@ -331,6 +269,47 @@
             "license": [
                 "MIT"
             ]
+        },
+        {
+            "name": "branchonline/yii2-lightbox",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BranchOnline/yii2-lightbox.git",
+                "reference": "6cfe1a4a4fba046294b718904f7e57f671558fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BranchOnline/yii2-lightbox/zipball/6cfe1a4a4fba046294b718904f7e57f671558fd1",
+                "reference": "6cfe1a4a4fba046294b718904f7e57f671558fd1",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/lightbox2": "2.7.1",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "branchonline\\lightbox\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jap Mul",
+                    "email": "jap@branchonline.nl"
+                }
+            ],
+            "description": "Lightbox widget for Yii2",
+            "keywords": [
+                "module",
+                "yii2"
+            ],
+            "time": "2016-10-27T15:13:14+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -393,6 +372,229 @@
             "time": "2017-07-16T21:13:23+00:00"
         },
         {
+            "name": "cebe/yii2-gravatar",
+            "version": "1.1",
+            "target-dir": "cebe/gravatar",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cebe/yii2-gravatar.git",
+                "reference": "c9c01bd14c9bdee9e5ae1ef1aad23f80c182c057"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cebe/yii2-gravatar/zipball/c9c01bd14c9bdee9e5ae1ef1aad23f80c182c057",
+                "reference": "c9c01bd14c9bdee9e5ae1ef1aad23f80c182c057",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-0": {
+                    "cebe\\gravatar\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Carsten Brandt",
+                    "email": "mail@cebe.cc",
+                    "homepage": "http://cebe.cc/",
+                    "role": "Core framework development"
+                }
+            ],
+            "description": "Gravatar Widget for Yii 2",
+            "keywords": [
+                "gravatar",
+                "yii"
+            ],
+            "time": "2013-12-10T17:49:58+00:00"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "time": "2018-08-27T06:10:37+00:00"
+        },
+        {
+            "name": "dmstr/yii2-adminlte-asset",
+            "version": "2.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmstr/yii2-adminlte-asset.git",
+                "reference": "c96336e1960ebc6c1e72487a7c6ca1a1589519fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmstr/yii2-adminlte-asset/zipball/c96336e1960ebc6c1e72487a7c6ca1a1589519fe",
+                "reference": "c96336e1960ebc6c1e72487a7c6ca1a1589519fe",
+                "shasum": ""
+            },
+            "require": {
+                "almasaeed2010/adminlte": "^2.4.0",
+                "cebe/yii2-gravatar": "1.*",
+                "rmrevin/yii2-fontawesome": "~2.9",
+                "yiisoft/yii2": "2.*",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "dmstr\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Munk",
+                    "email": "tobias@diemeisterei.de"
+                },
+                {
+                    "name": "Evgeniy Tkachenko",
+                    "email": "et.coder@gmail.com"
+                }
+            ],
+            "description": "AdminLTE backend theme asset bundle for Yii 2.0 Framework",
+            "keywords": [
+                "AdminLTE",
+                "admin",
+                "asset",
+                "backend",
+                "css",
+                "extension",
+                "less",
+                "theme",
+                "yii2"
+            ],
+            "time": "2018-07-24T14:47:13+00:00"
+        },
+        {
             "name": "ezyang/htmlpurifier",
             "version": "v4.10.0",
             "source": {
@@ -438,6 +640,54 @@
                 "html"
             ],
             "time": "2018-02-23T01:58:20+00:00"
+        },
+        {
+            "name": "fortawesome/font-awesome",
+            "version": "v4.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "a8386aae19e200ddb0f6845b5feeee5eb7013687"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/a8386aae19e200ddb0f6845b5feeee5eb7013687",
+                "reference": "a8386aae19e200ddb0f6845b5feeee5eb7013687",
+                "shasum": ""
+            },
+            "require-dev": {
+                "jekyll": "1.0.2",
+                "lessc": "1.4.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.6.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OFL-1.1",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Gandy",
+                    "email": "dave@fontawesome.io",
+                    "homepage": "http://twitter.com/davegandy",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The iconic font and CSS framework",
+            "homepage": "http://fontawesome.io/",
+            "keywords": [
+                "FontAwesome",
+                "awesome",
+                "bootstrap",
+                "font",
+                "icon"
+            ],
+            "time": "2016-10-24T15:52:54+00:00"
         },
         {
             "name": "himiklab/yii2-recaptcha-widget",
@@ -843,29 +1093,33 @@
             "time": "2016-06-05T14:07:33+00:00"
         },
         {
-            "name": "newerton/yii2-fancybox",
-            "version": "dev-master",
+            "name": "nezhelskoy/yii2-highlight",
+            "version": "v1.2.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/newerton/yii2-fancybox.git",
-                "reference": "46893e3c2d3ae5917c80cfd556e29bc9528c4497"
+                "url": "https://github.com/nezhelskoy/yii2-highlight.git",
+                "reference": "e5a6653f53e1d0105261c3ed6f4ee22662ba34a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/newerton/yii2-fancybox/zipball/46893e3c2d3ae5917c80cfd556e29bc9528c4497",
-                "reference": "46893e3c2d3ae5917c80cfd556e29bc9528c4497",
+                "url": "https://api.github.com/repos/nezhelskoy/yii2-highlight/zipball/e5a6653f53e1d0105261c3ed6f4ee22662ba34a8",
+                "reference": "e5a6653f53e1d0105261c3ed6f4ee22662ba34a8",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/fancybox": "~2.1.5",
-                "bower-asset/jquery-mousewheel": ">=3.1.13",
                 "php": ">=5.4.0",
-                "yiisoft/yii2": "*"
+                "yiisoft/yii2": "~2"
             },
             "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "newerton\\fancybox\\": ""
+                    "nezhelskoy\\highlight\\": "src/",
+                    "nezhelskoy\\highlight\\examples\\": "examples/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -874,18 +1128,18 @@
             ],
             "authors": [
                 {
-                    "name": "Newerton Vargas de Araujo",
-                    "email": "newerton.araujo@gmail.com"
+                    "name": "Dmitry A. Nezhelskoy",
+                    "email": "dmitry@nezhelskoy.pro",
+                    "homepage": "http://nezhelskoy.pro"
                 }
             ],
-            "description": "fancyBox is a tool that offers a nice and elegant way to add zooming functionality for images, html content and multi-media on your webpages.",
+            "description": "Yii2 highlight.js extension",
             "keywords": [
-                "extension",
-                "fancyapps",
-                "fancybox",
+                "highlight",
+                "highlight.js",
                 "yii2"
             ],
-            "time": "2017-03-29T03:56:27+00:00"
+            "time": "2017-03-08T13:50:49+00:00"
         },
         {
             "name": "omicronsoft/yii2-owl-carousel",
@@ -931,6 +1185,58 @@
                 "yii2"
             ],
             "time": "2017-01-06T11:07:12+00:00"
+        },
+        {
+            "name": "rmrevin/yii2-fontawesome",
+            "version": "2.17.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmrevin/yii2-fontawesome.git",
+                "reference": "65ce306da864f4d558348aeba040ed7876878090"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/65ce306da864f4d558348aeba040ed7876878090",
+                "reference": "65ce306da864f4d558348aeba040ed7876878090",
+                "shasum": ""
+            },
+            "require": {
+                "fortawesome/font-awesome": "~4.7",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "2.0.*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "rmrevin\\yii\\fontawesome\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Revin Roman",
+                    "email": "roman@rmrevin.com",
+                    "homepage": "https://rmrevin.com/"
+                }
+            ],
+            "description": "Asset Bundle for Yii2 with Font Awesome",
+            "keywords": [
+                "asset",
+                "awesome",
+                "bundle",
+                "font",
+                "yii"
+            ],
+            "time": "2017-01-11T14:05:47+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1394,6 +1700,67 @@
     ],
     "packages-dev": [
         {
+            "name": "2amigos/yii2-date-picker-widget",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-date-picker-widget.git",
+                "reference": "d09c2444e8c2329e38528bba77002dd65186c1ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-date-picker-widget/zipball/d09c2444e8c2329e38528bba77002dd65186c1ff",
+                "reference": "d09c2444e8c2329e38528bba77002dd65186c1ff",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap-datepicker": "1.7.0",
+                "yiisoft/yii2": ">=2.0.9",
+                "yiisoft/yii2-bootstrap": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "asset-installer-paths": {
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\datepicker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "2amigOS! Consulting Group",
+                    "email": "hola@2amigos.us",
+                    "homepage": "http://2amigos.us",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Bootstrap DatePicker widget for Yii2.",
+            "homepage": "http://yiiwheels.com/extension/bootstrap-datepicker",
+            "keywords": [
+                "2amigos",
+                "datepicker",
+                "extension",
+                "widget",
+                "yii",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2017-07-05T05:52:03+00:00"
+        },
+        {
             "name": "behat/gherkin",
             "version": "v4.5.1",
             "source": {
@@ -1451,6 +1818,70 @@
                 "parser"
             ],
             "time": "2017-08-30T11:04:43+00:00"
+        },
+        {
+            "name": "bower-asset/bootstrap-datepicker",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uxsolutions/bootstrap-datepicker.git",
+                "reference": "d364be5b066b38f3675a5a1dc174ce1ab1f3360e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uxsolutions/bootstrap-datepicker/zipball/d364be5b066b38f3675a5a1dc174ce1ab1f3360e",
+                "reference": "d364be5b066b38f3675a5a1dc174ce1ab1f3360e",
+                "shasum": null
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7.1,<4.0.0"
+            },
+            "type": "bower-asset",
+            "license": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "name": "bower-asset/fancybox",
+            "version": "V2.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fancyapps/fancybox.git",
+                "reference": "b708e8060cefd45c97981143f85d4094e3d6e18c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fancyapps/fancybox/zipball/b708e8060cefd45c97981143f85d4094e3d6e18c",
+                "reference": "b708e8060cefd45c97981143f85d4094e3d6e18c",
+                "shasum": null
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.10",
+                "bower-asset/jquery-mousewheel": "~3.1.3"
+            },
+            "type": "bower-asset",
+            "license": [
+                "GPLv3"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery-mousewheel",
+            "version": "3.1.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jquery/jquery-mousewheel.git",
+                "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jquery/jquery-mousewheel/zipball/67289b6b2aa0066d7d78a5807f520387135ffb22",
+                "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22",
+                "shasum": null
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.2.2"
+            },
+            "type": "bower-asset"
         },
         {
             "name": "bower-asset/typeahead.js",
@@ -3998,7 +4429,6 @@
         "kartik-v/yii2-widget-fileinput": 20,
         "2amigos/yii2-ckeditor-widget": 20,
         "keltstr/yii2-simplehtmldom": 20,
-        "newerton/yii2-fancybox": 20,
         "kartik-v/yii2-widget-datepicker": 20
     },
     "prefer-stable": false,

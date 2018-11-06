@@ -1,5 +1,16 @@
 <?php
 
+/* SEO START*/
+$seo = \app\models\Seo::find()
+    ->select(['slug','title','description','keywords','h1'])
+    ->where(['slug'=>'service'])
+    ->one();
+
+$this->title = $seo->title;
+$this->registerMetaTag(['name' => 'keywords', 'content' => $seo->keywords], 'keywords');
+$this->registerMetaTag(['name' => 'description', 'content' => $seo->description], 'description');
+/* SEO END*/
+
 ?>
 
 
@@ -19,8 +30,10 @@
 </div>
 <!--/BREADCRUMBS-->
 
+<h1 class="h1"><?=$seo->h1?></h1>
 
 <?=\app\widgets\ServicesSection::widget([
+    'title' => null,
     'services' => $services,
 ]);?>
 

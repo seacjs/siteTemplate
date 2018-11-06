@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     </p>
 
+    <div class="box">
     <!-- \himiklab\sortablegrid\SortableGridView -->
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -81,5 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    </div>
+
     <?php Pjax::end(); ?>
 </div>

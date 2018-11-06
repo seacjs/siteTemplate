@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Blog;
 use app\models\Doctor;
 use app\models\Example;
 use app\models\Price;
@@ -67,9 +68,12 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index', [
+            'blogs' => Blog::find()->where(['status' => Blog::STATUS_ACTIVE])->limit(3)->all(),
             'settings' =>  Settings::find()->one(),
             'reviews' => Review::find()->where(['status' => Review::STATUS_ACTIVE])->all(),
-            'services' => Service::find()->where(['status' => Service::STATUS_ACTIVE])->all(),
+            'services' => Service::find()->where(['status' => Service::STATUS_ACTIVE])->andWhere([
+                'parent_id' => null
+            ])->all(),
             'doctors' => Doctor::find()->where(['status' => Doctor::STATUS_ACTIVE])->all(),
             'sales' => Sales::find()->where(['status' => Sales::STATUS_ACTIVE])
                 ->andWhere(['>=','date_at',time()])->all(),
@@ -98,6 +102,7 @@ class SiteController extends Controller
     {
         $services = Service::find()
             ->where(['service.status' => Service::STATUS_ACTIVE])
+            ->andWhere(['service.parent_id' => null])
             ->joinwith('prices')
             ->orderBy(['price.category_id' => SORT_ASC])
             ->all();

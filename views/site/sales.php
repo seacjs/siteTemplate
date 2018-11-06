@@ -4,7 +4,18 @@
 
 use yii\helpers\Html;
 
-$this->title = 'О нас';
+/* SEO START*/
+/* @var $seo \app\models\Seo */
+$seo = \app\models\Seo::find()
+    ->select(['slug','title','description','keywords','h1'])
+    ->where(['slug'=>'sales'])
+    ->one();
+
+$this->title = $seo->title;
+$this->registerMetaTag(['name' => 'keywords', 'content' => $seo->keywords], 'keywords');
+$this->registerMetaTag(['name' => 'description', 'content' => $seo->description], 'description');
+/* SEO END*/
+
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -23,6 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="breadcrumb-after"></div>
 </div>
 <!--/BREADCRUMBS-->
+
+<div class="container">
+
+    <h1 class="h1"><?=$seo->h1?></h1>
+
+</div>
 
 <div class="container">
     <div class="row">

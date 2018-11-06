@@ -25,6 +25,8 @@ use dosamigos\ckeditor\CKEditor;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($fileModel, 'files[]')->widget(FileInput::class, \app\models\File::initialOptions($fileModel, $model));?>
+
 
     <?php echo \kartik\date\DatePicker::widget([
         'model' => $model,

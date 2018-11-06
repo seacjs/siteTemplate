@@ -1,12 +1,41 @@
 <?php
 
+/* @var $service \app\models\Service */
+/* @var $parents array \app\models\Service */
+
+/* SEO START*/
+/* @var $seo \app\models\Seo */
+$seo = \app\models\Seo::find()
+    ->select(['slug','title','description','keywords','h1'])
+    ->where(['slug'=>'service'])
+    ->one();
+
+$this->params['breadcrumbs'][] = ['label' => $seo->title, 'url' => ['index']];
+
+$this->title = $model->title;
+$this->registerMetaTag(['name' => 'keywords', 'content' => $model->keywords], 'keywords');
+$this->registerMetaTag(['name' => 'description', 'content' => $model->description], 'description');
+/* SEO END*/
+
+if(!empty($parents)) {
+    $rout = '/service/';
+    foreach ($parents as $parent) {
+        $rout .= $parent->slug .'/';
+        $this->params['breadcrumbs'][] = ['label' => $parent->name, 'url' => [
+                $rout
+        ]];
+    }
+}
+
+$this->params['breadcrumbs'][] = $service->name;
+
 
 ?>
 
 <?=\app\widgets\JumboSection::widget([
-    'h1' => $service->h1,
-    'description' => $service->description,
-    'image' => isset($service->file) ? $service->file->image : null
+    'h1' => $service->name,
+    'description' => $service->jumbo_description,
+    'image' => isset($service->mainFiles) && isset($service->mainFiles[1]) ? $service->mainFiles[1]->image : null
 ]);?>
 
 
@@ -33,8 +62,11 @@
 
 </div>
 
+<?php if($service->parent_id !== null):?>
+<noindex>
+<?php endif ?>
 
-<!-- PRICE LIST-->
+    <!-- PRICE LIST-->
 <div class="container">
 
     <h2>Цены</h2>
@@ -69,8 +101,12 @@
 <?=\app\widgets\DoctorsSection::widget([
     'doctors' => $service->doctors,
 ]);?>
-
+<?php if($service->parent_id !== null):?>
+</noindex>
+<?php endif ?>
 <!-- ------------------ -->
+
+<?=$this->render('@app/views/elements/badges');?>
 <?=\app\widgets\SertificateSection::widget();?>
 <?=\app\widgets\InteriorSection::widget();?>
 <?=\app\widgets\ContactsSection::widget([

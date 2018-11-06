@@ -9,6 +9,7 @@ use app\models\File;
 use yii\base\InvalidConfigException;
 use yii\helpers\Json;
 use yii\web\BadRequestHttpException;
+use yii\web\Response;
 
 /**
  * Action for upload files

@@ -16,8 +16,18 @@ return [
         'about' => 'site/about',
         'sales' => 'site/sales',
 
+        '/blog' => 'blog/index',
+        '/blog/<slug>' => 'blog/view',
+
+        '/example' => 'example/index',
+        '/example/<slug>' => 'example/view',
+
+
         '/service' => 'service/index',
         '/service/<slug>' => 'service/view',
+        '/service/<slug>/<childslug>' => 'service/view',
+        '/service/<slug>/<childslug>/<childslug2>' => 'service/view',
+        '/service/<slug>/<childslug>/<childslug2>/<childslug3>' => 'service/view',
 
         '/doctor' => 'doctor/index',
         '/doctor/<slug>' => 'doctor/view',

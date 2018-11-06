@@ -1,7 +1,13 @@
 <?php
 
-use app\widgets\assets\JuxtaposeAsset;
-JuxtaposeAsset::register($this);
+if(
+    (Yii::$app->controller->id == 'site') &&
+    (Yii::$app->controller->action->id == 'index')
+) {
+    \app\widgets\assets\JuxtaposeCrutchAsset::register($this);
+} else {
+    \app\widgets\assets\JuxtaposeAsset::register($this);
+}
 
 ?>
 
@@ -10,7 +16,7 @@ JuxtaposeAsset::register($this);
     <img src="<?php echo $right_image?>" />
 </div>
 
-<style>
-    .jx-knightlab {display: none !important;}
-    .juxtapose img{width: auto !important;}
-</style>
+<!--<style>-->
+<!--    .jx-knightlab {display: none !important;}-->
+<!--    .juxtapose img {width: 400px !important;}-->
+<!--</style>-->

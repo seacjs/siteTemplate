@@ -5,44 +5,90 @@
 */
 
 footer {
-  padding-top: 15px;
-  padding-bottom: 45px;
-}
-footer p, footer {
-  color: @whiteColor;
-  background: #000;
-}
-footer .logo-img {
-  margin-top:5px;
-  padding-bottom: 5px;
-  height: 40px;
-  width: 60px;
-  display: inline-block;
-  background: url('/images/logo-fitness.png') no-repeat center left;
-  background-size: contain;
-}
-footer .logo-text {
   position: relative;
-  top:-5px;
-  display: inline-block;
-  font-weight: bold;
-  color: @whiteColor;
-}
-footer .logo-text small {
-  font-weight: 100;
   display: block;
-}
-footer .compyright {
-  //padding-left: 60px;
-}
-footer .compyright p {
-  font-size: 12px;
-}
-footer .social-icons {
-  margin-left: 0px;
-}
-footer .social-icon {
-  width: 30px;
-  margin: 15px 0px 15px 6px;
+  margin-top: 60px;
+  background: #FAFAFA;
+  padding-top: 30px;
+  padding-bottom: 40px;
 }
 
+footer .logo-img {
+  width: 50px;
+  height: 50px;
+  background: url(/images/logo.png) no-repeat center left;
+  background-size: contain;
+  display: inline-block;
+}
+footer .navbar-label {
+  vertical-align: top;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: @color-blue;
+  display: inline-block;
+}
+
+footer .instagram-icon {background: url("/images/contacts-instagram-icon.png") no-repeat center;background-size: 22px;}
+footer .vk-icon {background: url("/images/contacts-vk-icon.png") no-repeat center;background-size: 28px;}
+footer .facebook-icon {background: url("/images/contacts-facebook-icon.png") no-repeat center;background-size: 26px;}
+
+footer .email-icon {background: url("/images/contacts-email-icon.png") no-repeat left top;background-size: 20px;}
+footer .phone-icon {background: url("/images/contacts-phone-icon.png") no-repeat left top;background-size: 20px;}
+footer .address-icon {background: url("/images/contacts-address-icon.png") no-repeat left top;background-size: 20px;}
+
+footer .vk-icon,
+footer .instagram-icon,
+footer .facebook-icon {
+  width: 31px;
+  height: 31px;
+  display: inline-block;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+footer .vk-icon:hover,
+footer .instagram-icon:hover,
+footer .facebook-icon:hover {
+  opacity: 1;
+}
+
+footer .address-icon,
+footer .phone-icon,
+footer .email-icon {
+  padding-left: 40px;
+  background-size: 30px 30px;
+  font-size: 12px;
+  min-height: 30px;
+  padding-top: 5px;
+  margin-bottom: 15px;
+}
+footer .copyright {
+  padding-top: 15px;
+}
+
+footer .main-link {
+  font-size: 14px;
+  color: @color-blue;
+  display: block;
+  padding-bottom: 5px;
+}
+footer .main-link ~ .main-link{
+  padding-top: 5px;
+}
+footer .second-link {
+  font-size: 10px;
+  color: #000000;
+  display: block;
+  padding: 2px 0px;
+}
+footer .second-link:hover {
+  color: @color-blue;
+}
+footer .company-title {
+  //font-family: Muller;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: #4F4F4F;
+}
+footer .company-description {
+  font-size: 8px;
+}

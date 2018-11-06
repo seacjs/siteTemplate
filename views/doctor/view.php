@@ -2,8 +2,24 @@
 
 /* @var $doctor app\models\Doctor */
 
-?>
 
+/* SEO START*/
+/* @var $seo \app\models\Seo */
+$seo = \app\models\Seo::find()
+    ->select(['slug','title','description','keywords','h1'])
+    ->where(['slug'=>'doctor'])
+    ->one();
+
+$this->params['breadcrumbs'][] = ['label' => $seo->title, 'url' => ['index']];
+$this->params['breadcrumbs'][] = $model->h1;
+
+$this->title = $model->title;
+$this->registerMetaTag(['name' => 'keywords', 'content' => $model->keywords], 'keywords');
+$this->registerMetaTag(['name' => 'description', 'content' => $model->description], 'description');
+/* SEO END*/
+
+?>
+<div class="breadcrumb-before-doctor-page"></div>
 <!--BREADCRUMBS -->
 <div class="container">
     <div class="breadcrumb-before"></div>
@@ -26,7 +42,7 @@
         <div class="row">
 
             <div class="col-sm-6">
-                <h1><?=$doctor->h1?>1111</h1>
+                <h1><?=$doctor->h1?></h1>
 
                 <div class="title">Должность</div>
                 <div class="description"><?=$doctor->position?></div>
@@ -77,7 +93,7 @@
 <!-- ------------------ -->
 
 <?=\app\widgets\ServicesSection::widget([
-    'services' => $doctor->services,
+    'services' => $doctor->mainServices,
 ]);?>
 
 <!-- ------------------ -->

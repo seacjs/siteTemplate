@@ -14,7 +14,8 @@
                 <div class="map">
 <!-- https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3AeaXlHc75D7E8CYjmolHemOKo2jtAS6Jg&amp;width=100%25&amp;height=480&amp;lang=ru_RU&amp;scroll=false    -->
 <!--                    <script type="text/javascript" charset="utf-8" async src=""></script>-->
-                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A7d4766c15e06e2148dcfbbd5e2c5efa96051a60a76a06a2c684218c73bd2a7c7&amp;width=100%25&amp;height=480&amp;lang=ru_RU&amp;scroll=true"></script>
+
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%<?=$settings->map?>&amp;width=100%25&amp;height=480&amp;lang=ru_RU&amp;scroll=true"></script>
                 </div>
                 <div class="map-info-wrap">
                     <div class="map-info">

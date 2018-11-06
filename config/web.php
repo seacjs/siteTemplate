@@ -6,6 +6,7 @@ $url = require __DIR__ . '/url.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'Our Stoma',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -41,10 +42,15 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'nashastoma.promo@gmail.com',
+                'password' => 'MHtHo~{w',
+                'port' => '587', // '587', '465'
+                'encryption' => 'tls', // ssl tls
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

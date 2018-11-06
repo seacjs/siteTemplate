@@ -1,5 +1,7 @@
 <?php
 
+
+
 ?>
 
 
@@ -8,13 +10,13 @@
 
         <h2>Примеры работ</h2>
 
-        <?php if(empty($reviews)):?>
+        <?php if(!empty($examples)):?>
 
             <?php
             $carouselItems = [];
             foreach($examples as $key => $example) {
                 $carouselItems[] = [
-                    'content' => $this->render('@app/views/example/_carouser-item', [
+                    'content' => $this->render('@app/views/example/_carousel-item', [
                         'model' => $example,
                     ])
                 ];
@@ -22,20 +24,21 @@
 
             ?>
 
-            <div class="reviews-wrap">
+            <div class="example-wrap">
                 <?php echo  \omicronsoft\owlcarousel\OwlCarouselWidget::widget([
                     'options' => [
+                        'id' => 'exampleCarousel',
                         'class' => 'owl-carousel',
                     ],
                     'clientOptions' => [
                         'mouseDrag' => false,
                         'touchDrag' => false,
                         'pullDrag' => false,
-                        'loop' => false,
+                        'loop' => true,
                         'autoplay' => false,
                         'margin' => 0,
                         'nav' => false,
-                        'dots' => true,
+                        'dots' => false,
                         'responsive' => [
                             '0' => [
                                 'items' => 1,
@@ -52,9 +55,6 @@
                     'items' => $carouselItems,
                 ]); ?>
             </div>
-
-            <div class="review-carousel-arrow-left"></div>
-            <div class="review-carousel-arrow-right"></div>
 
         <?php endif ?>
 

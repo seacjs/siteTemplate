@@ -1,5 +1,9 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'nashastoma.promo@gmail.com',
+    'callbackEmails' => [
+        '3dent@list.ru',
+        'support@adwhite.ru',
+    ],
 ];

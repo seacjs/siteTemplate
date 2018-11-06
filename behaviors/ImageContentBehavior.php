@@ -19,7 +19,7 @@ class ImageContentBehavior extends Behavior
 
     public function beforeContent()
     {
-        die('ImageContentBehavior');
+//        die('ImageContentBehavior');
     }
     /*
         TODO:: Переделать в contentBehavior который моб бы
