@@ -243,7 +243,7 @@ class File extends ActiveRecord
     public static function initialPreviewConfig($files) {
 
         if(!is_array($files)) {
-            $files = $files->files;
+            $files = $files->mainFiles;
         }
         $result = [];
         foreach($files as $file) {
