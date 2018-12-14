@@ -30,7 +30,7 @@ class CallbackForm extends Model
             $textBody = 'Оставлена заявка на сайте. Имя: ' .$this->name. ' Телефон: ' . $this->phone;
 
             Yii::$app->mailer->compose()
-                ->setFrom('nashastoma.promo@gmail.com')
+                ->setFrom(Yii::$app->params['adminEmail'])
                 ->setTo($email)
                 ->setSubject('Оставлена заявка на сайте')
                 ->setTextBody($textBody)

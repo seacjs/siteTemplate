@@ -42,6 +42,20 @@ class FrontController extends Controller
     public function beforeAction($action)
     {
 
+        /* SEO START*/
+        // todo: check this
+        $seo = \app\models\Seo::find()
+            ->select(['slug','title','description','keywords','h1'])
+            ->where(['slug' => 'main'])
+            ->orWhere(['slug' => 'default'])
+            ->one();
+
+        $this->title = $seo->title;
+        $this->registerMetaTag(['name' => 'keywords', 'content' => $seo->keywords], 'keywords');
+        $this->registerMetaTag(['name' => 'description', 'content' => $seo->description], 'description');
+
+        /* SEO END*/
+
         return parent::beforeAction($action);
     }
 

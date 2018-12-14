@@ -41,6 +41,7 @@ class File extends ActiveRecord
     public $imagesPath = 'uploads/images/';
     public $imagesThumbnailsPath = 'uploads/thumbnails/';
     public $imagesOriginPath = 'uploads/origin/';
+    public $imagesCropPath = 'uploads/crop/';
 
     /* image parameters */
     public $imageQuality = 80;

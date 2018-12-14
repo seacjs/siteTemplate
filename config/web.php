@@ -6,7 +6,7 @@ $url = require __DIR__ . '/url.php';
 
 $config = [
     'id' => 'basic',
-    'name' => 'Our Stoma',
+    'name' => 'SiteName',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -46,7 +46,7 @@ $config = [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-                'username' => 'nashastoma.promo@gmail.com',
+                'username' => $params['adminEmail'],
                 'password' => 'MHtHo~{w',
                 'port' => '587', // '587', '465'
                 'encryption' => 'tls', // ssl tls

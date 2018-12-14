@@ -7,6 +7,7 @@ use yii\web\View;
 /* @var $this yii\web\View */
 
 /* SEO START*/
+
 $seo = \app\models\Seo::find()
     ->select(['slug','title','description','keywords','h1'])
     ->where(['slug'=>'main'])
@@ -15,6 +16,7 @@ $seo = \app\models\Seo::find()
 $this->title = $seo->title;
 $this->registerMetaTag(['name' => 'keywords', 'content' => $seo->keywords], 'keywords');
 $this->registerMetaTag(['name' => 'description', 'content' => $seo->description], 'description');
+
 /* SEO END*/
 
 
