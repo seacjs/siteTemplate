@@ -8,11 +8,19 @@ use yii\web\UrlManager;
 
 Class CityUrlManager extends UrlManager
 {
+    public $ruleConfig = [
+        'class' => 'app\components\UrlRule'
+    ];
+
     public function createUrl($params)
     {
         $url = parent::createUrl($params);
 
         if($this->_isModule()) {
+            return $url;
+        }
+
+        if(isset($params[0]) && $this->_isMultiCity($params[0])) {
             return $url;
         }
 
@@ -25,12 +33,17 @@ Class CityUrlManager extends UrlManager
 
         $url = parent::createUrl($params);
 
-        if( $url == '/' ) {
-            return '/'.$city;
-        } else {
-            return '/'.$city.$url;
-        }
+        return $url == '/' ? '/'.$city : '/'.$city.$url;
 
+    }
+
+    protected function _isMultiCity($route) {
+        foreach(Yii::$app->urlManager->rules as $rule) {
+            if($rule->route == $route) {
+                return $rule->multiCity;
+            }
+        }
+        return false;
     }
 
     protected function _isModule() {

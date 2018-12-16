@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\CityRequest;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -46,8 +47,6 @@ class FrontController extends Controller
 
         $session = new Session();
         $sessionCity = $session->get('city', false);
-//        $sessionCity = false;
-//         \yii\helpers\VarDumper::dump($sessionCity, 10, true);
 
         if($sessionCity) {
             $session->set('city', \Yii::$app->params['city']);
@@ -108,6 +107,11 @@ class FrontController extends Controller
             'slug' => 'spb',
             'name' => 'Piter',
         ];
+        $this->_removeCityFromUrl();
+
+//        VarDumper::dump(,10,1);
+
+
 
 //        if($currentCity == null) {
 //            $city = City::find()->one();
@@ -119,6 +123,33 @@ class FrontController extends Controller
         return parent::beforeAction($action);
 
     }
+
+    protected function _removeCityFromUrl() {
+//        $currentPath = $this->resolvePathInfo();
+
+        $currentPath = (new CityRequest())->getUrl();
+        $newPath = false;
+        foreach($this->_getCitiesList() as $city) {
+            $strPos = strpos($currentPath, '/'.$city);
+            if($strPos !== false && $strPos === 0) {
+                $newPath = str_replace('/'.$city,'',$currentPath);
+                $session = new Session();
+                $session->set('city', $city);
+                break;
+            }
+
+        }
+        if($newPath != false && $currentPath != $newPath) {
+            return $this->redirect($newPath);
+        }
+    }
+    protected function _getCitiesList() {
+        return [
+            'spb',
+            'msk'
+        ];
+    }
+
     public function beforeActionSeo($action)
     {
 

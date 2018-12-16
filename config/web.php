@@ -25,7 +25,7 @@ $config = [
     'components' => [
         'request' => [
             // to multi cities
-//            'class' => 'app\components\CityRequest',
+            'class' => 'app\components\CityRequest',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'someSecretValidationKey',
         ],

@@ -2,6 +2,7 @@
 
 namespace app\components;
 use Yii;
+use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use yii\web\Request;
 
@@ -15,6 +16,10 @@ Class CityRequest extends Request
         if ($this->_langUrl === null) {
             $this->_langUrl = $this->getUrl();
 
+            // todo: stop here
+//            $this->_langUrl  = $this->_removeCityFromUrl();
+//             VarDumper::dump($this->_langUrl,10,1);
+
             $url_list = explode('/', $this->_langUrl);
 
             if($this->_isModule()) {
@@ -22,6 +27,7 @@ Class CityRequest extends Request
             }
 
             $city_url = isset($url_list[1]) ? $url_list[1] : null;
+
 
             if($city_url == '') {
                 Yii::$app->params['city'] = Yii::$app->params['city'];
@@ -41,11 +47,23 @@ Class CityRequest extends Request
         return $this->_langUrl;
     }
 
+    // todo: add cities model to this method
     protected function _getCitiesList() {
         return [
             'spb',
             'msk'
         ];
+    }
+
+    protected function _removeCityFromUrl() {
+        $currentPath = $this->resolvePathInfo();
+        foreach($this->_getCitiesList() as $city) {
+            $strPos = strpos($currentPath, '/'.$city);
+            if($strPos !== false && $strPos === 1) {
+                return str_replace('/'.$city,'',$currentPath);
+            }
+        }
+        return $currentPath;
     }
 
     protected function _isModule() {

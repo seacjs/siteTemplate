@@ -2,7 +2,7 @@
 
 return [
     // to multi cities
-//    'class' => 'app\components\CityUrlManager',
+    'class' => 'app\components\CityUrlManager',
 //    'languages' => ['en', 'ru'],
 
     'enablePrettyUrl' => true,
@@ -11,9 +11,15 @@ return [
 
         '/' => 'site/index',
         '/admin' => 'admin/default/index',
-
-        '/test' => 'test/index',
-
+        [
+            'pattern' => '/test',
+            'route' => 'test/index',
+            'multiCity' => true
+        ],
+        [
+            'pattern' => '/test2',
+            'route' => 'test2/index',
+        ],
 
 //        'prices' => 'site/prices',
 //        'contacts' => 'site/contacts',
