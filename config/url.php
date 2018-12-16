@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // to multi cities
 //    'class' => 'app\components\CityUrlManager',
 //    'languages' => ['en', 'ru'],
 
