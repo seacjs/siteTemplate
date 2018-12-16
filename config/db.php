@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=192.168.83.137;dbname=smile', // 192.168.83.137 localhost
+    'dsn' => 'mysql:host=192.168.83.137;dbname=ses', // 192.168.83.137 localhost
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',

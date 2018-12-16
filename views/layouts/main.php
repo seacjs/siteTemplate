@@ -12,9 +12,7 @@ use app\assets\AppAsset;
 use app\assets\PhoneAsset;
 
 AppAsset::register($this);
-PhoneAsset::register($this);
-
-\Yii::$app->params['settings'] = \app\models\Settings::find()->one();
+// PhoneAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>

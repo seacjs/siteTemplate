@@ -12,6 +12,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@admin'   => '@app/modules/admin',
     ],
     'modules' => [
         'admin' => [
@@ -23,8 +24,9 @@ $config = [
     ],
     'components' => [
         'request' => [
+            'class' => 'app\components\CityRequest',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'someValidationKey',
+            'cookieValidationKey' => 'someSecretValidationKey',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

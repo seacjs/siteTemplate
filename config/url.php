@@ -1,7 +1,7 @@
 <?php
 
 return [
-//    'class' => 'codemix\localeurls\UrlManager',
+//    'class' => 'app\components\CityUrlManager',
 //    'languages' => ['en', 'ru'],
 
     'enablePrettyUrl' => true,
@@ -11,26 +11,18 @@ return [
         '/' => 'site/index',
         '/admin' => 'admin/default/index',
 
-        'prices' => 'site/prices',
-        'contacts' => 'site/contacts',
-        'about' => 'site/about',
-        'sales' => 'site/sales',
-
-        '/blog' => 'blog/index',
-        '/blog/<slug>' => 'blog/view',
-
-        '/example' => 'example/index',
-        '/example/<slug>' => 'example/view',
+        '/test' => 'test/index',
 
 
-        '/service' => 'service/index',
-        '/service/<slug>' => 'service/view',
-        '/service/<slug>/<childslug>' => 'service/view',
-        '/service/<slug>/<childslug>/<childslug2>' => 'service/view',
-        '/service/<slug>/<childslug>/<childslug2>/<childslug3>' => 'service/view',
-
-        '/doctor' => 'doctor/index',
-        '/doctor/<slug>' => 'doctor/view',
+//        'prices' => 'site/prices',
+//        'contacts' => 'site/contacts',
+//        'about' => 'site/about',
+//
+//        '/blog' => 'blog/index',
+//        '/blog/<slug>' => 'blog/view',
+//
+//        '/service' => 'service/index',
+//        '/service/<slug>' => 'service/view',
 
         /* admin */
         [

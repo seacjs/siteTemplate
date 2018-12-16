@@ -2,21 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\Blog;
-use app\models\Doctor;
-use app\models\Example;
-use app\models\Price;
-use app\models\Review;
-use app\models\Sales;
-use app\models\Service;
-use app\models\Settings;
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 
-class SiteController extends Controller
+class SiteController extends FrontController
 {
     /**
      * {@inheritdoc}
@@ -67,18 +58,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index', [
-            'blogs' => Blog::find()->where(['status' => Blog::STATUS_ACTIVE])->limit(3)->all(),
-            'settings' =>  Settings::find()->one(),
-            'reviews' => Review::find()->where(['status' => Review::STATUS_ACTIVE])->all(),
-            'services' => Service::find()->where(['status' => Service::STATUS_ACTIVE])->andWhere([
-                'parent_id' => null
-            ])->all(),
-            'doctors' => Doctor::find()->where(['status' => Doctor::STATUS_ACTIVE])->all(),
-            'sales' => Sales::find()->where(['status' => Sales::STATUS_ACTIVE])
-                ->andWhere(['>=','date_at',time()])->all(),
-            'examples' => Example::find()->where(['status' => Review::STATUS_ACTIVE])->all(),
-        ]);
+        return $this->render('index');
+    }
+    public function actionTest()
+    {
+        return $this->render('test');
     }
 
     /**

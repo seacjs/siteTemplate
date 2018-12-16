@@ -2,11 +2,13 @@
 
 namespace app\controllers;
 
-use app\models\Settings;
+use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
+use yii\web\Session;
 
 /**
  * Default controller for the `admin` module
@@ -42,17 +44,95 @@ class FrontController extends Controller
     public function beforeAction($action)
     {
 
+        $session = new Session();
+        $sessionCity = $session->get('city', false);
+//        $sessionCity = false;
+//         \yii\helpers\VarDumper::dump($sessionCity, 10, true);
+
+        if($sessionCity) {
+            $session->set('city', \Yii::$app->params['city']);
+        } else {
+            /* ip */
+            $geo = new \jisoft\sypexgeo\Sypexgeo();
+            $geo->get();                // also returned geo data as array
+
+//            $ipCity = City::find()->where([
+//                'name' => $geo->city
+//            ])->andWhere([
+//                'active' => 1
+//            ])->one();
+//
+//            if($ipCity == null) {
+//
+//                $city = City::find()->one();
+//
+//            } else {
+//                $city = $ipCity;
+//            }
+
+             $city = [
+                 'id' => 1,
+                 'slug' => 'spb',
+                 'name' => 'Piter',
+             ];
+
+//            \Yii::$app->params['city'] = $city['slug'];
+            // \yii\helpers\VarDumper::dump($city, 10, true);
+//            \yii\helpers\VarDumper::dump($city['slug'], 10, true);
+//            \yii\helpers\VarDumper::dump(\Yii::$app->params['city'], 10, true);
+//            \yii\helpers\VarDumper::dump(Url::to(['/'.\Yii::$app->request->pathInfo]), 10, true);
+//            echo $geo->ip, '<br>';
+//            echo $geo->ipAsLong, '<br>';
+//            \yii\helpers\VarDumper::dump($geo->country, 10, true);
+//            echo '<br>';
+//            \yii\helpers\VarDumper::dump($geo->region, 10, true);
+//            echo '<br>';
+//            \yii\helpers\VarDumper::dump($geo->city, 10, true);
+//            echo '<hr>';
+
+//             \yii\helpers\VarDumper::dump(\Yii::$app->request->pathInfo, 10, true);
+
+//            die;
+
+            Yii::$app->params['city'] = $city['slug'];
+            $session->set('city', $city['slug']);
+            $this->redirect(Url::to(['/'.\Yii::$app->request->pathInfo]));
+        }
+//        $currentCity = City::find()->where([
+//            'slug' => $session->get('city')
+//        ])->andWhere([
+//            'active' => 1
+//        ])->one();
+        $currentCity = [
+            'id' => 1,
+            'slug' => 'spb',
+            'name' => 'Piter',
+        ];
+
+//        if($currentCity == null) {
+//            $city = City::find()->one();
+//            \Yii::$app->params['city'] = $city['slug'];
+//            $session->set('city', $city['slug']);
+//            $this->redirect(Url::to(['/'.\Yii::$app->request->pathInfo]));
+//        }
+
+        return parent::beforeAction($action);
+
+    }
+    public function beforeActionSeo($action)
+    {
+
         /* SEO START*/
         // todo: check this
-        $seo = \app\models\Seo::find()
-            ->select(['slug','title','description','keywords','h1'])
-            ->where(['slug' => 'main'])
-            ->orWhere(['slug' => 'default'])
-            ->one();
-
-        $this->title = $seo->title;
-        $this->registerMetaTag(['name' => 'keywords', 'content' => $seo->keywords], 'keywords');
-        $this->registerMetaTag(['name' => 'description', 'content' => $seo->description], 'description');
+//        $seo = \app\models\Seo::find()
+//            ->select(['slug','title','description','keywords','h1'])
+//            ->where(['slug' => 'main'])
+//            ->orWhere(['slug' => 'default'])
+//            ->one();
+//
+//        $this->title = $seo->title;
+//        $this->registerMetaTag(['name' => 'keywords', 'content' => $seo->keywords], 'keywords');
+//        $this->registerMetaTag(['name' => 'description', 'content' => $seo->description], 'description');
 
         /* SEO END*/
 
