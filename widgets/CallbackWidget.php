@@ -29,7 +29,7 @@ class CallbackWidget extends \yii\bootstrap\Widget
             }
         }
 
-        echo $this->render('callback', [
+        echo $this->render('@app/views/widgets/callback', [
             'model' => $callbackModel,
             'send' => $this->send,
             'toggleButtonClass' => $this->toggleButtonClass

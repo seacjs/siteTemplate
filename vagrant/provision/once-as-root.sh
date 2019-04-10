@@ -63,8 +63,8 @@ ln -s /app/vagrant/nginx/app.conf /etc/nginx/sites-enabled/app.conf
 echo "Done!"
 
 info "Initailize databases for MySQL"
-mysql -uroot <<< "CREATE DATABASE smile"
-mysql -uroot <<< "CREATE DATABASE smile_test"
+mysql -uroot <<< "CREATE DATABASE <site_db_name>"
+mysql -uroot <<< "CREATE DATABASE <site_db_name>_test"
 echo "Done!"
 
 info "Install composer"

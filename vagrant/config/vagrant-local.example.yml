@@ -10,10 +10,11 @@ timezone: Europe/London
 box_check_update: false
 
 # Virtual machine name
-machine_name: smile
+machine_name: <site_name>
 
 # Virtual machine IP
-ip: 192.168.83.137
+# 192.168.83.137 - default IP
+ip: 127.0.0.1
 
 # Virtual machine CPU cores number
 cpus: 1

@@ -24,8 +24,8 @@ $config = [
     ],
     'components' => [
         'request' => [
-            // to multi cities
-            'class' => 'app\components\CityRequest',
+            // to multi cities use CityRequest
+            // 'class' => 'app\components\CityRequest',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'someSecretValidationKey',
         ],
@@ -50,7 +50,7 @@ $config = [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
                 'username' => $params['adminEmail'],
-                'password' => 'MHtHo~{w',
+                'password' => $params['adminPassword'],
                 'port' => '587', // '587', '465'
                 'encryption' => 'tls', // ssl tls
             ],

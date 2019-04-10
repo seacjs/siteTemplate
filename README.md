@@ -1,29 +1,25 @@
-Структура проекта
--------------------
-
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
-
-
-
-Минимальные требования
+Настройка нового репозитория
 ------------
+Только для тех кто шарит в чем тут дело. Это не инструкция а просто памятка. Переходи к следующему разделу.
 
-- PHP 7.1.0.
-- Composer
-- Vagrant
+Задать <site_name> 
+~~~
+/vagrant/nginx/app.conf
+/vagrant/config/vagrant-local.yml
+/Vagrantfile
+~~~
+
+Задать <site_db_name>
+~~~
+/vagrant/provision/once-as-root.sh
+~~~
+Настроить 
+~~~
+/config/db.php
+~~~
 
 
-Установка
+Установка и настройка
 ------------
 
 ### 1. Клонировать проект
@@ -32,38 +28,96 @@
 git clone https://github.com/seacjs/siteTemplate.git
 ~~~
 
-
 ### 2 Установить vagrant
 
 
+Frontend шпаргалка
+------------
+
+### Сокращенный синтаксис PHP
+
+- Php код заключен в след конструкции:
 ~~~
-http://localhost/basic/web/
+<?php somePhpCodeHere ?>
 ~~~
 
+- Вывод информации:
+~~~
+<?= $someInfo ?>
+<?php echo $someInfo ?>
+~~~
 
-### 3 Установить еще что нибудь
+- Объект и свойства 
+~~~
+$object->property
+~~~
 
-### 5 Подтянуть зависимости через composer
+- if else
+~~~
+<?php if(): ?>
+...
+<?php else: ?>
+...
+<?php endif ?>
+~~~
 
-### 4 Прогнать миграции
+- foreach
+~~~
+<?php foreach($array as $key => $value): ?>
+...
+<?php endforeach ?>
+~~~
 
-### 5 Прогнать миграции
+### Картинки
 
+- Обращение к главной картинке объекта
+~~~
+$object->image
+~~~
+
+- Получение картинок объекта
+~~~
+$object->images
+~~~
+
+- Свойства объекта картинки
+~~~
+$image->url
+
+$image->urlThumbnail
+
+$image->alt
+
+$image->title
+~~~
+
+- Пример, как это использовать:
+~~~
+<img src="<?= $service->image->url ?>" title="<?=$service->image->title ?>" width="...">
+~~~
 
 
 Тестовые данные
 -------
 
-Сайт будет доступен по следующей ссылке
+- Сайт будет доступен по следующей ссылке
+
 ~~~
-http://globalvisa
+http://sitename
 ~~~
 
 
-**NOTES:**
 
-- Добавить тестовые данные
-- 1111
+Дополнительно
+-------------------
 
+### Image not found
+
+Если картинка не найдена, используются следующие картинки для отображения:
+
+~~~
+images/image_not_found.jpg
+images/image_not_found_thumbnail.jpg
+~~~
 
    

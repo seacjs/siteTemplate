@@ -63,4 +63,8 @@ class Seo extends FrontActiveRecord
         ];
     }
 
+    public function generate() {
+
+    }
+
 }

@@ -16,6 +16,8 @@ $this->registerMetaTag(['name' => 'keywords', 'content' => $seo->keywords], 'key
 $this->registerMetaTag(['name' => 'description', 'content' => $seo->description], 'description');
 /* SEO END*/
 
+
+// todo: breadcrumbs behavior
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -42,11 +44,3 @@ $this->params['breadcrumbs'][] = $this->title;
     <?=$settings->about?>
 
 </div>
-
-<!-- ------------------ -->
-<?=\app\widgets\SertificateSection::widget();?>
-<?=\app\widgets\InteriorSection::widget();?>
-<?=\app\widgets\ContactsSection::widget([
-    'settings' => $settings,
-]);?>
-<!-- ------------------ -->

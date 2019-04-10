@@ -6,6 +6,8 @@ namespace app\models;
 use app\traits\DeleteFilesBeforeDeleteModelTrait;
 use app\traits\GetFilesTrait;
 use app\traits\GetFileTrait;
+use app\traits\GetImageTrait;
+use app\traits\GetImagesTrait;
 
 use app\behaviors\ImageContentBehavior;
 use yii\behaviors\SluggableBehavior;
@@ -62,7 +64,11 @@ class FrontActiveRecord extends \yii\db\ActiveRecord
      * Use traits to get methods to work with files
      * todo: попробовать переделать на behaviors
      * */
-    use GetFileTrait, GetFilesTrait, DeleteFilesBeforeDeleteModelTrait;
+    use GetImageTrait,
+        GetImagesTrait,
+        GetFileTrait,
+        GetFilesTrait,
+        DeleteFilesBeforeDeleteModelTrait;
 
     /**
      * {@inheritdoc}
