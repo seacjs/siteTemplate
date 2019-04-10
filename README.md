@@ -120,4 +120,3 @@ images/image_not_found.jpg
 images/image_not_found_thumbnail.jpg
 ~~~
 
-   
