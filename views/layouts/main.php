@@ -7,7 +7,6 @@ use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
@@ -35,29 +34,15 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
 
-<?= $this->render('@app/views/layouts/block/header', [
-]); ?>
+<?= $this->render('@app/views/layouts/block/header'); ?>
 
-<?php if((Yii::$app->controller->id == 'site') && (Yii::$app->controller->action->id == 'index')):?>
-<?php else: ?>
-     <div class="container hide">
-         <div class="breadcrumb-before"></div>
-         <?= Breadcrumbs::widget([
-             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-             'homeLink' => [
-                 'label' => 'Главная',
-                 'url' => '/',
-                 ''
-             ]
-         ]) ?>
-
-         <div class="breadcrumb-after"></div>
-     </div>
+<?php if((Yii::$app->controller->id != 'site') && (Yii::$app->controller->action->id != 'index')):?>
+    <?= $this->render('@app/views/layouts/block/breadcrumb'); ?>
  <?php endif ?>
 
 <?= $content ?>
 
-<?= $this->render('@app/views/layouts/block/footer', []); ?>
+<?= $this->render('@app/views/layouts/block/footer'); ?>
 
 <?php $this->endBody() ?>
 

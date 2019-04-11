@@ -34,6 +34,7 @@ class SettingsController extends FrontController
         ]);
     }
 
+    public $defaultAction = 'update';
 
     public function actions()
     {
@@ -122,6 +123,9 @@ class SettingsController extends FrontController
      */
     public function actionUpdate($id)
     {
+        if(!isset($id) || $id === null) {
+            $id = 1;
+        }
         $model = $this->findModel($id);
 
         $fileModel = new File();
@@ -130,7 +134,8 @@ class SettingsController extends FrontController
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            return $this->redirect(['view', 'id' => $model->id]);
+//            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         }
 
         return $this->render('update', [

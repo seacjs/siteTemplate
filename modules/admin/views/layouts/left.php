@@ -47,8 +47,9 @@
                     ['label' => 'Примеры работ','icon' => 'archive', 'url' => ['/admin/example/index']],
 
                     ['label' => 'Управление', 'options' => ['class' => 'header']],
-
+                    // todo: pararms
                     ['label' => 'Настройки', 'icon' => 'cog', 'url' => ['/admin/settings/index']],
+                    ['label' => 'Настройки', 'icon' => 'cog', 'url' => ['/admin/default/change-password']],
                     ['label' => 'Seo', 'icon' => 'tasks','url' => ['/admin/seo/index']],
 
 //                    ['label' => 'Основное', 'items' => [
